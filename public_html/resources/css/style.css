@@ -1,0 +1,300 @@
+body {
+  background-image: url("../image/cubes.png");
+  background-repeat: repeat;
+}
+
+h1, h2, h3, h4, .navbar, .btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+}
+
+p, .subtext, textarea, input, table {
+  font-family: 'Abel', sans-serif;
+  font-size: 16px;
+  color: #042F4A;
+}
+
+/*
+/////////////////////////////////////////////
+// Navbar
+/////////////////////////////////////////////
+*/
+.navbar {
+  background-color: #042F4A;
+  color: #3A6C8C;
+}
+
+.navbar .navbar-brand {
+  color: #929DA4;
+}
+
+.navbar .navbar-brand:hover {
+  color: #D4DFE6;
+  text-shadow: 0px 0px 2px #fff;
+}
+
+.nav-pills {
+  padding-top: 4px;
+}
+
+.nav-pills > li > a {
+  color: #929DA4;
+  border: 0.5px solid transparent;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.nav-pills > li.active > a {
+  color: #929DA4;
+  background-color: #041F3A;
+  border: 0.5px solid #929DA4;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.nav-pills > li > a:hover {
+  color: #D4DFE6;
+  background-color: transparent;
+  border: 0.5px solid #929DA4;
+}
+
+.nav-pills > li.active > a:hover {
+  color: #D4DFE6;
+  background-color: #041F3A;
+}
+
+.dropdown-menu {
+  right: 5px;
+  left: unset;
+}
+
+.dropdown-menu > li > a {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu > li > a:hover {
+  background-color: #042F4A;
+  color: #929DA4;
+}
+
+/*
+/////////////////////////////////////////////
+// Main
+/////////////////////////////////////////////
+*/
+.content {
+  margin-top: 55px;
+}
+
+.content .jumbotron, .blob {
+  box-shadow: 3px 3px 0px #042F4A;
+  border: thin solid #042F4A;
+  border-radius: 6px;
+  background-color: #eee;
+}
+
+.centered {
+  text-align: center;
+}
+
+#main-container::after {
+  padding-bottom: 50px;
+}
+
+/*
+/////////////////////////////////////////////
+// Footer
+/////////////////////////////////////////////
+*/
+hr {
+  border-top: 1px solid #042F4A;
+  margin: 10px 0px 10px 0px;
+}
+
+footer {
+  position: fixed;
+  bottom : 0px;
+  color: #042F4A;
+  background-color: #DDDDDD;
+  border-top: thin solid #042F4A;
+  width: 100%;
+  padding: 3px;
+  padding-left: 10%;
+}
+
+/*
+/////////////////////////////////////////////
+// Blob
+/////////////////////////////////////////////
+*/
+.blob {
+  margin-bottom: 30px;
+}
+
+#summary .blob {
+  background-color: #010C12;
+  color: #ccc;
+}
+
+#summary .blob p {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.blob-link a {
+  color: #ccc;
+}
+
+.blob-link a:hover {
+  color: #fff;
+  text-decoration: none;
+
+  text-shadow: 0px 0px 4px #fff;
+}
+
+
+/*
+/////////////////////////////////////////////
+// Title Block
+/////////////////////////////////////////////
+*/
+.title-block {
+  display: block;
+  text-align: center;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  border-top: thin #000 solid;
+  border-bottom: thin #000 solid;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.title-block h1 {
+  font-size: 18px;
+}
+
+/*
+/////////////////////////////////////////////
+// Profile Images
+/////////////////////////////////////////////
+*/
+.profile-img {
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 992px) {
+  .profile-img {
+    border-radius: 0px;
+  }
+}
+
+.fader, .fadel, .fadeb {
+  position:absolute;
+}
+
+.fader, .fadel {
+    height: 100%;
+    width: 24px;
+}
+
+.fadeb {
+  width: 100%;
+  height: 24px;
+}
+
+.fader {
+    background: -webkit-linear-gradient(left,
+                rgba(0,0,0,0) 0%,
+                rgba(238,238,238,100) 50%);
+    right: 15px;
+}
+
+.fadel {
+    background: -webkit-linear-gradient(right,
+                rgba(0,0,0,0) 0%,
+                rgba(238,238,238,100) 50%);
+    left: 15px;
+}
+
+.fadeb {
+    background: -webkit-linear-gradient(top,
+                rgba(0,0,0,0) 0%,
+                rgba(238,238,238,100) 50%);
+    bottom: 15px;
+}
+
+/*
+/////////////////////////////////////////////
+// Anchors
+/////////////////////////////////////////////
+*/
+.anc-r {
+  position: absolute;
+  right: 50px;
+}
+
+/*
+/////////////////////////////////////////////
+// Tables
+/////////////////////////////////////////////
+*/
+table {
+  width: 90%;
+  margin-left: 5%;
+}
+
+table:not(.tbl-invisible) {
+  border: thin s
+}
+
+table:not(.tbl-invisible) tr {
+  border-bottom: thin solid #000;
+
+  text-align:left;
+}
+
+table:not(.tbl-invisible) tr:last-child {
+  border-bottom: none;
+}
+
+/* header row */
+table:not(.tbl-invisible) tr:first-child {
+  text-align: center;
+}
+
+/* data */
+table:not(.tbl-invisible) tr td {
+  border-right:  thin solid #000;
+
+  padding: 3px;
+}
+
+table:not(.tbl-invisible) tr td:last-child {
+  border-right:  none;
+}
+
+/*
+/////////////////////////////////////////////
+// Labels
+/////////////////////////////////////////////
+*/
+
+.label-year
+{
+  background-color: #337ab7;
+}
+
+.label-win10
+{
+  background-color: #337ab7;
+}
