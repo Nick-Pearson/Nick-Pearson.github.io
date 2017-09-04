@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Bootstrap -->
+    <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./components/bootstrap/dist/css/bootstrap.min.css"/>
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Abel|Press+Start+2P' rel='stylesheet' type='text/css'>
+    <script src="https://use.fontawesome.com/d0bcbf8988.js"></script>
+
+    <!-- Site Code -->
+    <style>
+      .name-header
+      {
+        margin-top: 10px;
+      }
+
+      .name-header-large
+      {
+      }
+
+      .name-title
+      {
+        font-size: 20px;
+        text-shadow: 2px 2px 0px #aaa;
+      }
+
+      .profile-picture
+      {
+        width: 110px;
+        border-radius: 55px;
+        box-shadow: 2px 2px 0px 1px #042F4A;
+      }
+
+      .social-icons
+      {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+      }
+
+      .social-icons li
+      {
+        display: inline;
+        font-size: 7px;
+        padding-right: 5px;
+      }
+
+      .location-text
+      {
+        color: #777777;
+      }
+
+      .summary-text
+      {
+        text-align: center;
+        text-shadow: 1px 1px 3px #aaa;
+        font-size: 18px;
+      }
+
+      .show-more
+      {
+        text-align: center;
+      }
+    </style>
+
+    <link rel="stylesheet" href="./resources/css/style.css"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="name-header name-header-large row">
+        <div class="col-md-2 col-md-offset-4">
+          <!-- Profile Picture Goes Here -->
+          <img src="./resources/image/profile.jpg" class="profile-picture"/>
+        </div>
+
+        <div class="col-md-3">
+          <h1 class="name-title">Nick Pearson</h1>
+          <span class="location-text">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <span class="sr-only">Location:</span>
+             BRISTOL, UK
+          </span>
+
+          <ul class="social-icons">
+
+            <!-- Email -->
+            <li>
+              <a href="mailto:nick@pearsoncgi.net" target="_blank">
+                <i class="fa fa-envelope-square fa-5x" aria-hidden="true"></i>
+                <span class="sr-only">Email</span>
+              </a>
+            </li>
+
+            <!-- LinkedIn -->
+            <li>
+              <a href="http://uk.linkedin.com/pub/nick-pearson/64/776/340" target="_blank">
+                <i class="fa fa-linkedin-square fa-5x" aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span>
+              </a>
+            </li>
+
+            <!-- GitHub -->
+            <li>
+              <a href="https://github.com/Nick-Pearson" target="_blank">
+                <i class="fa fa-github-square fa-5x" aria-hidden="true"></i>
+                <span class="sr-only">Github</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <hr>
+
+          <p class="summary-text">Video Game Programmer with experience working on small projects and AAA games, currently studying Computer Science at The University of Bristol.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <h1>Projects</h1>
+
+      <!-- <span id="project-load-msg"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i><span class="sr-only">Loading...</span></span> -->
+
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+      </ul>
+
+      <p class="show-more"><a href = "javascript:showMoreProjects();"><i class="fa fa-caret-down"></i> Show 3 More <i class="fa fa-caret-down"></i></a></p>
+
+      <hr>
+
+      <h1>Qualifications</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    </div>
+
+    <footer>
+      <p>
+        Source code for this site is availible on <a href="https://github.com/Nick-Pearson/ProfileWebsite" target="_blank">GitHub <i class="fa fa-external-link"></i></a>
+      </p>
+    </footer>
+  </body>
+</html>
