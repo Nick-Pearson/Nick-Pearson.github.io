@@ -82,6 +82,12 @@
       {
         text-align: center;
       }
+
+      .label
+      {
+        margin: 2px;
+        vertical-align: text-top;
+      }
     </style>
 
     <link rel="stylesheet" href="./resources/css/style.css"/>
@@ -175,6 +181,10 @@
     <script src="./components/showdown/dist/showdown.js"></script>
     <script src="./components/showdown-icon/showdown-icon.js"></script>
 
+    <script src="./components/mustache.js/mustache.js"></<script>
+
+    </script>
+
     <script type="text/javascript">
       //start an  AJAX request for the data JSON file
       function LoadDataFile()
@@ -204,6 +214,7 @@
         mdParser.setOption("openLinksInNewWindow", true);
 
         var containerDiv = $("#project-container");
+        var imgLeft = true;
 
         for(var projIdx = 0; projIdx < projectDataObj.projects.length; ++projIdx)
         {
@@ -212,7 +223,8 @@
           if(projData.featured == false)
             continue;
 
-          containerDiv.append(GenerateProjectHTMLBlob(projData, mdParser));
+          containerDiv.append(GenerateProjectHTMLBlob(projectDataObj, projData, mdParser, imgLeft));
+          imgLeft = !imgLeft;
 
           console.log("----- New Project -----");
           console.log(projData.projectName);
@@ -220,21 +232,86 @@
         }
       }
 
-      function GenerateProjectHTMLBlob(projData, mdParser)
+      function GenerateProjectHTMLBlob(dataObj, projData, mdParser, imgLeft = true)
       {
-        var YearString = GenerateYearString(projData);
+        var TemplateData = {
+          YearString:     GenerateYearString(projData),
+          LabelsString:   GenerateLabelHTML(dataObj, projData),
+          SummaryString:  mdParser.makeHtml(projData.summaryMd),
+          projData:       projData
+        };
 
-        return "<div class=\"blob\"><div class=\"row\"><div class=\"col-md-12 visible-xs visible-sm\"><h1>" +
-                        projData.projectName + " (" + YearString + ")" + // Title Small
-                        "</h1></div><div class=\"col-md-3\"><div class=\"fader hidden-xs hidden-sm\"></div><img src = \"" +
-                        "../resources/image/" + projData.summaryImage +// Image Source
-                        "\" width=\"100%\" class=\"profile-img\"/></div><div class=\"col-md-9\"><h1 class=\"hidden-xs hidden-sm\">" +
-                        projData.projectName + "<br/>" + YearString + //Title Large
-                        "</h1>" +
-                        mdParser.makeHtml(projData.summaryMd) +
-                        "<p class=\"anc-r\"><a href=\"" +
-                        "#" + // Link Addr
-                        "\">Read More </a></p><span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span></div></div></div>";
+        var ImgLTemplate = "<div class=\"blob\">\
+                              <div class=\"row\">\
+                                <div class=\"col-md-12 visible-xs visible-sm\">\
+                                  <h1>{{projData.projectName}} ({{YearString}})</h1>\
+                                  {{&LabelsString}}<br/>\
+                                </div>\
+                                <div class=\"col-md-3\">\
+                                  <div class=\"fader hidden-xs hidden-sm\"></div>\
+                                  <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
+                                </div>\
+                                <div class=\"col-md-9\">\
+                                  <div  class=\"hidden-xs hidden-sm\">\
+                                    <h1>{{projData.projectName}}\
+                                    {{&LabelsString}}</h1>\
+                                    <p>{{YearString}}</p>\
+                                  </div>\
+                                  {{&SummaryString}}\
+                                  <span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span>\
+                                </div>\
+                              </div>\
+                            </div>";
+
+        var ImgRTemplate = "<div class=\"blob\">\
+                              <div class=\"row\">\
+                                <div class=\"col-md-12 visible-xs visible-sm\">\
+                                  <h1>{{projData.projectName}} ({{YearString}})</h1>\
+                                  {{&LabelsString}}<br/>\
+                                </div>\
+                                <div class=\"col-md-3 visible-xs visible-sm\">\
+                                    <div class=\"fadel hidden-xs hidden-sm\"></div>\
+                                    <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
+                                </div>\
+                                <div class=\"col-md-9\" style=\"padding-left:20px;\">\
+                                  <div  class=\"hidden-xs hidden-sm\">\
+                                    <h1>{{projData.projectName}}\
+                                    {{&LabelsString}}</h1>\
+                                    <p>{{YearString}}</p>\
+                                  </div>\
+                                  {{&SummaryString}}\
+                                  <span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span>\
+                                </div>\
+                                <div class=\"col-md-3 hidden-xs hidden-sm\">\
+                                    <div class=\"fadel hidden-xs hidden-sm\"></div>\
+                                    <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
+                                </div>\
+                              </div>\
+                            </div>";
+
+        if(imgLeft)
+          return Mustache.to_html(ImgLTemplate, TemplateData);
+
+        return Mustache.to_html(ImgRTemplate, TemplateData);
+      }
+
+      function GenerateLabelHTML(dataObj, projData)
+      {
+        var LabelString = "";
+
+        for(var tagIdx = 0; tagIdx < projData.tags.length; ++tagIdx)
+        {
+          var TagData = dataObj.tagDefinitions[projData.tags[tagIdx]];
+
+          if(TagData == undefined)
+            continue;
+
+          var TagDisplayName = (TagData.displayName != undefined) ? TagData.displayName : projData.tags[tagIdx];
+
+          LabelString = LabelString + "<span class=\"label\" style=\"background-color:#" + TagData.tagColour + "\">" + TagDisplayName + "</span>";
+        }
+
+        return LabelString;
       }
 
       function GenerateYearString(projData)
