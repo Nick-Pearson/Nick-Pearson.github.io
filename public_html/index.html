@@ -5,90 +5,16 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+    <meta name=description content="Nick Pearson, Games Programmer">
+    <meta name=keywords content="Game, Programmer, Development, C#, Unity, Unreal Engine. UE4, Sumo Digital, Rising Star, C++, Blender">
+    <meta name=author content="Nick Pearson">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./components/bootstrap/dist/css/bootstrap.min.css"/>
 
     <!-- fonts -->
     <link href='https://fonts.googleapis.com/css?family=Abel|Press+Start+2P' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/d0bcbf8988.js"></script>
-
-    <!-- Site Code -->
-    <style>
-      .name-header
-      {
-        margin-top: 10px;
-          text-align: center;
-      }
-
-      @media(min-width: 992px)
-      {
-        .name-header
-        {
-          text-align: left;
-        }
-      }
-
-      .name-title
-      {
-        font-size: 20px;
-        text-shadow: 2px 2px 0px #aaa;
-      }
-
-      .profile-picture
-      {
-        width: 110px;
-        border-radius: 55px;
-        box-shadow: 2px 2px 0px 1px #042F4A;
-      }
-
-      .social-icons
-      {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-      }
-
-      .social-icons li
-      {
-        display: inline;
-        font-size: 7px;
-        padding-right: 5px;
-      }
-
-      .location-text
-      {
-        color: #777777;
-      }
-
-      .summary-text
-      {
-        text-align: center;
-        text-shadow: 1px 1px 3px #aaa;
-        font-size: 18px;
-      }
-
-      .show-more
-      {
-        text-align: center;
-      }
-
-      .section-title
-      {
-        font-size: 18px;
-        text-align: center;
-      }
-
-      .project-list-title
-      {
-        text-align: center;
-      }
-
-      .label
-      {
-        margin: 2px;
-        vertical-align: text-top;
-      }
-    </style>
 
     <link rel="stylesheet" href="./resources/css/style.css"/>
   </head>
@@ -151,14 +77,12 @@
 
       <h1 class="section-title">Projects</h1>
 
-      <!-- <span id="project-load-msg"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i><span class="sr-only">Loading...</span></span> -->
-
       <div id="project-container">
-
-
       </div>
 
-      <p class="show-more"><a href = "javascript:showMoreProjects();"><i class="fa fa-caret-down"></i> Show 3 More <i class="fa fa-caret-down"></i></a></p>
+      <p id="project-load-msg" class="centered" style="font-size: 20px;"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i><span class="sr-only">Loading...</span></p>
+
+      <p id="show-more" class="centered" style="display: none;"><a href = "javascript:AddProjectBlobs(3);"><i class="fa fa-caret-down" aria-hidden="true"></i> <span id="show-more-text">Show 3 More</span> <i class="fa fa-caret-down" aria-hidden="true"></i></a></p>
 
       <hr>
 
@@ -199,64 +123,88 @@
         xhttp.send();
       }
 
+      //globals to track the generated blobs
+      var dataObj = null;
+      var imgLeft = true;
+      var blobCount = 0;
+
       function OnDataFileLoaded(fileText)
       {
-        var projectDataObj = JSON.parse(fileText);
+        $("#project-load-msg").hide();
 
-        if(projectDataObj == null)
+        dataObj = JSON.parse(fileText);
+
+        if(dataObj == null)
         {
           alert("invalid data");
           return;
         }
+
+        AddProjectBlobs(3);
+      }
+
+      function AddProjectBlobs(Count)
+      {
+        //check range
+        if(Count == 0)
+          return;
+
+        if(Count > dataObj.projects.length - blobCount)
+          return AddProjectBlobs(dataObj.projects.length - blobCount);
 
         //create a MD parser object
         var mdParser = new showdown.Converter({ extensions: ["icon"]});
         mdParser.setOption("openLinksInNewWindow", true);
 
         var containerDiv = $("#project-container");
-        var imgLeft = true;
 
-        for(var projIdx = 0; projIdx < projectDataObj.projects.length; ++projIdx)
+        for(var projIdx = 0; projIdx < Count; ++projIdx)
         {
-          var projData = projectDataObj.projects[projIdx];
+          var projData = dataObj.projects[projIdx + blobCount];
 
-          if(projData.featured == false)
-            continue;
-
-          containerDiv.append(GenerateProjectHTMLBlob(projectDataObj, projData, mdParser, imgLeft));
+          containerDiv.append(GenerateProjectHTMLBlob(projData, mdParser, imgLeft));
           imgLeft = !imgLeft;
+        }
 
-          console.log("----- New Project -----");
-          console.log(projData.projectName);
-          console.log(mdParser.makeHtml(projData.summaryMd));
+        blobCount += Count;
+
+        if(blobCount >= dataObj.projects.length)
+        {
+          $("#show-more").hide();
+        }
+        else
+        {
+          $("#show-more-text").text("Show " + Math.min(3, dataObj.projects.length - blobCount) + " More");
+          $("#show-more").show();
         }
       }
 
-      function GenerateProjectHTMLBlob(dataObj, projData, mdParser, imgLeft = true)
+      function GenerateProjectHTMLBlob(projData, mdParser, imgLeft = true)
       {
         var TemplateData = {
           YearString:     GenerateYearString(projData),
           LabelsString:   GenerateLabelHTML(dataObj, projData),
-          SummaryString:  mdParser.makeHtml(projData.summaryMd),
+          MainPageLink:   "#",
+          SummaryString:  mdParser.makeHtml(projData.summaryMd + " ... [Read More](" + this.MainPageLink + ")"),
           projData:       projData
         };
 
         var ImgLTemplate = "<div class=\"blob\">\
                               <div class=\"row\">\
-                                <div class=\"col-md-12 visible-xs visible-sm\">\
+                                <a href=\"{{MainPageLink}}\" class=\"col-md-12 visible-xs visible-sm discrete-link\">\
                                   <h1>{{projData.projectName}} ({{YearString}})</h1>\
                                   {{&LabelsString}}<br/>\
-                                </div>\
-                                <div class=\"col-md-3\">\
+                                </a>\
+                                <a href=\"{{MainPageLink}}\" class=\"col-md-3\">\
                                   <div class=\"fader hidden-xs hidden-sm\"></div>\
                                   <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
-                                </div>\
+                                </a>\
                                 <div class=\"col-md-9\">\
-                                  <div  class=\"hidden-xs hidden-sm\">\
+                                  <a href=\"{{MainPageLink}}\" class=\"hidden-xs hidden-sm discrete-link\">\
                                     <h1>{{projData.projectName}}\
                                     {{&LabelsString}}</h1>\
-                                    <p>{{YearString}}</p>\
-                                  </div>\
+                                    <p>{{YearString}}</p></a>\
+                                  </a>\
                                   {{&SummaryString}}\
                                   <span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span>\
                                 </div>\
@@ -265,27 +213,27 @@
 
         var ImgRTemplate = "<div class=\"blob\">\
                               <div class=\"row\">\
-                                <div class=\"col-md-12 visible-xs visible-sm\">\
+                                <a href=\"{{MainPageLink}}\" class=\"col-md-12 visible-xs visible-sm discrete-link\">\
                                   <h1>{{projData.projectName}} ({{YearString}})</h1>\
                                   {{&LabelsString}}<br/>\
-                                </div>\
-                                <div class=\"col-md-3 visible-xs visible-sm\">\
+                                </a>\
+                                <a href=\"{{MainPageLink}}\" class=\"col-md-3 visible-xs visible-sm\">\
                                     <div class=\"fadel hidden-xs hidden-sm\"></div>\
                                     <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
-                                </div>\
+                                </a>\
                                 <div class=\"col-md-9\" style=\"padding-left:20px;\">\
-                                  <div  class=\"hidden-xs hidden-sm\">\
+                                  <a href=\"{{MainPageLink}}\"  class=\"hidden-xs hidden-sm discrete-link\">\
                                     <h1>{{projData.projectName}}\
                                     {{&LabelsString}}</h1>\
                                     <p>{{YearString}}</p>\
-                                  </div>\
+                                  </a>\
                                   {{&SummaryString}}\
                                   <span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span>\
                                 </div>\
-                                <div class=\"col-md-3 hidden-xs hidden-sm\">\
+                                <a href=\"{{MainPageLink}}\" class=\"col-md-3 hidden-xs hidden-sm\">\
                                     <div class=\"fadel hidden-xs hidden-sm\"></div>\
                                     <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
-                                </div>\
+                                </a>\
                               </div>\
                             </div>";
 
