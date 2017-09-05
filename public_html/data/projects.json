@@ -1,0 +1,48 @@
+{
+  "tag-definitions" :
+  {
+    "PC":       {"tagColour": "FF0000"},
+    "XBoxOne":  {"tagColour": "FF0000"},
+    "PS4":      {"tagColour": "FF0000"},
+    "UWP":      {"tagColour": "FF0000"},
+    "c++":      {"tagColour": "FF0000"},
+    "c#":       {"tagColour": "FF0000"},
+    "UE4":      {"tagColour": "FF0000"},
+    "Unity":    {"tagColour": "FF0000"}
+  },
+  "projects" :
+  [
+    {
+      "projectName": "Dead Island 2",
+      "featured":true,
+      "tags": ["PC", "XBoxOne", "PS4"],
+      "mainPageData": "di2.md",
+      "monthStart": 6,
+      "monthEnd": 8,
+      "yearStart": 2016,
+      "yearEnd": 2017,
+      "summaryImage":"projects/di2/DI2_Gamescon.jpg",
+      "summaryMd": "I worked on this upcoming AAA title as part of my placement year at [Sumo Digital @fa-external-link ](http://sumo-digital.com/)"
+    },
+    {
+      "projectName": "Dawn of the Fireflies",
+      "featured":true,
+      "tags": ["PC", "c++", "UE4"],
+      "mainPageData": "fireflies.md",
+      "month": 6,
+      "year": 2017,
+      "summaryImage":"projects/fireflies/library0.jpg",
+      "summaryMd": "A dark and moody 3rd person puzzle platformer game, I worked on this as a part of the internal studio game jam whilst at Sumo Digital. We completed the game in 2 weeks with a team of 3 artists, 2 programmers and 1 technical designer"
+    },
+    {
+      "projectName": "Smuggler's Paradise",
+      "featured":true,
+      "tags": ["UWP", "Unity", "c#"],
+      "mainPageData": "smugglers.md",
+      "month": 8,
+      "year": 2016,
+      "summaryImage":"projects/smugglers/smugglers0.png",
+      "summaryMd": "2D cartoon style space shooter game, trade items across different planets while dodging obsticals on the way. Spend money upgrading and improving your ship. Created for the Rising Star GameJam round in 2 weeks for Universal Windows Platforms"
+    }
+  ]
+}

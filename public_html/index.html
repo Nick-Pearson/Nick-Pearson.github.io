@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- Bootstrap -->
-    <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./components/bootstrap/dist/css/bootstrap.min.css"/>
 
     <!-- fonts -->
@@ -18,10 +17,15 @@
       .name-header
       {
         margin-top: 10px;
+          text-align: center;
       }
 
-      .name-header-large
+      @media(min-width: 992px)
       {
+        .name-header
+        {
+          text-align: left;
+        }
       }
 
       .name-title
@@ -64,6 +68,17 @@
       }
 
       .show-more
+      {
+        text-align: center;
+      }
+
+      .section-title
+      {
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .project-list-title
       {
         text-align: center;
       }
@@ -128,21 +143,20 @@
 
       <hr>
 
-      <h1>Projects</h1>
+      <h1 class="section-title">Projects</h1>
 
       <!-- <span id="project-load-msg"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i><span class="sr-only">Loading...</span></span> -->
 
-      <ul>
-        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-      </ul>
+      <div id="project-container">
+
+
+      </div>
 
       <p class="show-more"><a href = "javascript:showMoreProjects();"><i class="fa fa-caret-down"></i> Show 3 More <i class="fa fa-caret-down"></i></a></p>
 
       <hr>
 
-      <h1>Qualifications</h1>
+      <h1 class="section-title">Qualifications</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     </div>
@@ -152,5 +166,130 @@
         Source code for this site is availible on <a href="https://github.com/Nick-Pearson/ProfileWebsite" target="_blank">GitHub <i class="fa fa-external-link"></i></a>
       </p>
     </footer>
+
+    <!-- Scripts -->
+    <script src="./components/jquery/dist/jquery.min.js"></script>
+
+    <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="./components/showdown/dist/showdown.js"></script>
+    <script src="./components/showdown-icon/showdown-icon.js"></script>
+
+    <script type="text/javascript">
+      //start an  AJAX request for the data JSON file
+      function LoadDataFile()
+      {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            OnDataFileLoaded(this.responseText);
+          }
+        };
+        xhttp.open("GET", "./data/projects.json", true);
+        xhttp.send();
+      }
+
+      function OnDataFileLoaded(fileText)
+      {
+        var projectDataObj = JSON.parse(fileText);
+
+        if(projectDataObj == null)
+        {
+          alert("invalid data");
+          return;
+        }
+
+        //create a MD parser object
+        var mdParser = new showdown.Converter({ extensions: ["icon"]});
+        mdParser.setOption("openLinksInNewWindow", true);
+
+        var containerDiv = $("#project-container");
+
+        for(var projIdx = 0; projIdx < projectDataObj.projects.length; ++projIdx)
+        {
+          var projData = projectDataObj.projects[projIdx];
+
+          if(projData.featured == false)
+            continue;
+
+          containerDiv.append(GenerateProjectHTMLBlob(projData, mdParser));
+
+          console.log("----- New Project -----");
+          console.log(projData.projectName);
+          console.log(mdParser.makeHtml(projData.summaryMd));
+        }
+      }
+
+      function GenerateProjectHTMLBlob(projData, mdParser)
+      {
+        var YearString = GenerateYearString(projData);
+
+        return "<div class=\"blob\"><div class=\"row\"><div class=\"col-md-12 visible-xs visible-sm\"><h1>" +
+                        projData.projectName + " (" + YearString + ")" + // Title Small
+                        "</h1></div><div class=\"col-md-3\"><div class=\"fader hidden-xs hidden-sm\"></div><img src = \"" +
+                        "../resources/image/" + projData.summaryImage +// Image Source
+                        "\" width=\"100%\" class=\"profile-img\"/></div><div class=\"col-md-9\"><h1 class=\"hidden-xs hidden-sm\">" +
+                        projData.projectName + "<br/>" + YearString + //Title Large
+                        "</h1>" +
+                        mdParser.makeHtml(projData.summaryMd) +
+                        "<p class=\"anc-r\"><a href=\"" +
+                        "#" + // Link Addr
+                        "\">Read More </a></p><span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span></div></div></div>";
+      }
+
+      function GenerateYearString(projData)
+      {
+        var hasMonthRange = (projData.month == undefined);
+        var hasYearRange = (projData.year == undefined);
+
+        var monthStart = hasMonthRange ? projData.monthStart : projData.month;
+        var monthEnd = hasMonthRange ? projData.monthEnd : projData.month;
+
+        var yearStart = hasYearRange ? projData.yearStart : projData.year;
+        var yearEnd = hasYearRange ? projData.yearEnd : projData.year;
+
+        if(monthStart == monthEnd && yearStart == yearEnd)
+        {
+          return MonthToString(monthStart) + " " + yearStart;
+        }
+
+        return MonthToString(monthStart) + " " + yearStart + " - " + MonthToString(monthEnd) + " " + yearEnd;
+      }
+
+      function MonthToString(month)
+      {
+        switch(month)
+        {
+        case 1:
+          return "Jan";
+        case 2:
+          return "Feb";
+        case 3:
+          return "Mar";
+        case 4:
+          return "Apr";
+        case 5:
+          return "May";
+        case 6:
+          return "Jun";
+        case 7:
+          return "Jul";
+        case 8:
+          return "Aug";
+        case 9:
+          return "Sep";
+        case 10:
+          return "Oct";
+        case 11:
+          return "Nov";
+        }
+
+        return "Dec"
+      }
+
+      $(document).ready(function() {
+        LoadDataFile();
+      });
+    </script>
   </body>
 </html>

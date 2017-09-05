@@ -6,7 +6,7 @@
     <title>Nick Pearson - Porfolio</title>
 
     <!-- styles -->
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../resources/css/style.css"/>
 
     <!-- fonts -->
