@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name=description content="Nick Pearson, Games Programmer">
+    <meta name=keywords content="Game, Programmer, Development, C#, Unity, Unreal Engine. UE4, Sumo Digital, Rising Star, C++, Blender">
+    <meta name=author content="Nick Pearson">
+
+    <title>Nick Pearson | Games Programmer</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./components/bootstrap/dist/css/bootstrap.min.css"/>
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Abel|Press+Start+2P' rel='stylesheet' type='text/css'>
+    <script src="https://use.fontawesome.com/d0bcbf8988.js"></script>
+
+    <link rel="stylesheet" href="./resources/css/style.css"/>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="name-header"></div>
+
+      <hr/>
+
+      <div class="row" id="project-container">
+        <p class="centered" style="font-size: 20px;"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i><span class="sr-only">Loading...</span></p>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Source code for this site is availible on <a href="https://github.com/Nick-Pearson/ProfileWebsite" target="_blank">GitHub <i class="fa fa-external-link"></i></a>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./components/jquery/dist/jquery.min.js"></script>
+
+    <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="./components/showdown/dist/showdown.js"></script>
+    <script src="./components/showdown-icon/showdown-icon.js"></script>
+
+    <script src="./components/mustache.js/mustache.js"></script>
+
+    <script src="./resources/js/site.js"></script>
+
+    <script type="text/javascript">
+      function LoadProjectPage()
+      {
+        var projID = qs("p");
+        var projData = null;
+
+        //try to find the project data
+        for(var projIdx = 0; projIdx < dataObj.projects.length; ++projIdx)
+        {
+          if(dataObj.projects[projIdx].projectID == projID)
+          {
+            projData = dataObj.projects[projIdx];
+            break;
+          }
+        }
+
+        var ErrorTemplate = "<div class=\"centered\">\
+                              <h1>{{ErrorTitle}}</h1>\
+                              <p>{{ErrorMessage}}</p>\
+                              <p><a href=\"index.html\"> <i class=\"fa fa-home\" aria-hidden=\"true\"></i> Go to Home Page</a></p>\
+                            </div>";
+
+        //if the project cannot be found, display an error
+        if(projData == null)
+        {
+          $("#project-container").html(Mustache.to_html(ErrorTemplate, {ErrorMessage: "No Project data could be found", ErrorTitle: "Project Not Found"}));
+          return;
+        }
+
+        //render details
+        var mdParser = MarkdownParser();
+
+        var TemplateData = MakeTemplateData(projData);
+
+        var TitleTemplate = "<div class=\"centered\">\
+                              <h1 class=\"section-title\">{{projData.projectName}}</h1>\
+                              {{&LabelsString}}\
+                              {{&SummaryStringMain}}\
+                            </div>\
+                            <div class=\"well\" id=\"project-article-container\">\
+                              <p class=\"centered\" style=\"font-size: 20px;\"><i class=\"fa fa-cog fa-spin fa-fw\" aria-hidden=\"true\"></i><span class=\"sr-only\">Loading...</span></p>\
+                            </div>";
+
+        $("#project-container").html(Mustache.to_html(TitleTemplate, TemplateData));
+
+        //begin an AJAX request for the MD file
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            $("#project-article-container").html(mdParser.makeHtml(this.responseText));
+          }
+        };
+        xhttp.open("GET", "./data/" + projData.mainPageData, true);
+        xhttp.send();
+      }
+
+      $(document).ready(function() {
+        $("#name-header").load("./resources/html/header.html");
+        LoadDataFile(function() {
+          LoadProjectPage();
+        });
+      });
+    </script>
+  </body>
+</html>

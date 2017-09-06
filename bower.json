@@ -19,7 +19,8 @@
     "jquery": "^3.2.1",
     "bootstrap": "^3.3.7",
     "showdown": "^1.7.3",
-    "showdown-icon": "https://www.github.com/Nick-Pearson/showdown-icon.git#master",
-    "mustache.js": "mustache#^2.3.0"
+    "showdown-icon": "^2.0.0",
+    "mustache.js": "mustache#^2.3.0",
+    "slick-carousel": "^1.7.1"
   }
 }

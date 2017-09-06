@@ -14,6 +14,7 @@
   [
     {
       "projectName": "Dead Island 2",
+      "projectID": "di2",
       "tags": ["PC", "XBoxOne", "PS4"],
       "mainPageData": "di2.md",
       "monthStart": 6,
@@ -25,6 +26,7 @@
     },
     {
       "projectName": "Dawn of the Fireflies",
+      "projectID": "fireflies",
       "tags": ["PC", "cpp", "UE4"],
       "mainPageData": "fireflies.md",
       "month": 6,
@@ -34,6 +36,7 @@
     },
     {
       "projectName": "Smuggler's Paradise",
+      "projectID": "smugglers",
       "tags": ["UWP", "Unity", "cs"],
       "mainPageData": "smugglers.md",
       "month": 8,

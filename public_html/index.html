@@ -9,6 +9,8 @@
     <meta name=keywords content="Game, Programmer, Development, C#, Unity, Unreal Engine. UE4, Sumo Digital, Rising Star, C++, Blender">
     <meta name=author content="Nick Pearson">
 
+    <title>Nick Pearson | Games Programmer</title>
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./components/bootstrap/dist/css/bootstrap.min.css"/>
 
@@ -21,49 +23,7 @@
 
   <body>
     <div class="container">
-      <div class="name-header name-header-large row">
-        <div class="col-md-2 col-md-offset-4">
-          <!-- Profile Picture Goes Here -->
-          <img src="./resources/image/profile.jpg" class="profile-picture"/>
-        </div>
-
-        <div class="col-md-3">
-          <h1 class="name-title">Nick Pearson</h1>
-          <span class="location-text">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <span class="sr-only">Location:</span>
-             BRISTOL, UK
-          </span>
-
-          <ul class="social-icons">
-
-            <!-- Email -->
-            <li>
-              <a href="mailto:nick@pearsoncgi.net" target="_blank">
-                <i class="fa fa-envelope-square fa-5x" aria-hidden="true"></i>
-                <span class="sr-only">Email</span>
-              </a>
-            </li>
-
-            <!-- LinkedIn -->
-            <li>
-              <a href="http://uk.linkedin.com/pub/nick-pearson/64/776/340" target="_blank">
-                <i class="fa fa-linkedin-square fa-5x" aria-hidden="true"></i>
-                <span class="sr-only">LinkedIn</span>
-              </a>
-            </li>
-
-            <!-- GitHub -->
-            <li>
-              <a href="https://github.com/Nick-Pearson" target="_blank">
-                <i class="fa fa-github-square fa-5x" aria-hidden="true"></i>
-                <span class="sr-only">Github</span>
-              </a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
+      <div id="name-header"></div>
 
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -105,215 +65,24 @@
     <script src="./components/showdown/dist/showdown.js"></script>
     <script src="./components/showdown-icon/showdown-icon.js"></script>
 
-    <script src="./components/mustache.js/mustache.js"></<script>
+    <script src="./components/mustache.js/mustache.js"></script>
 
-    </script>
+    <script src="./resources/js/site.js"></script>
 
     <script type="text/javascript">
-      //start an  AJAX request for the data JSON file
-      function LoadDataFile()
-      {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            OnDataFileLoaded(this.responseText);
-          }
-        };
-        xhttp.open("GET", "./data/projects.json", true);
-        xhttp.send();
-      }
-
-      //globals to track the generated blobs
-      var dataObj = null;
-      var imgLeft = true;
-      var blobCount = 0;
-
-      function OnDataFileLoaded(fileText)
-      {
-        $("#project-load-msg").hide();
-
-        dataObj = JSON.parse(fileText);
-
-        if(dataObj == null)
-        {
-          alert("invalid data");
-          return;
-        }
-
-        AddProjectBlobs(3);
-      }
-
-      function AddProjectBlobs(Count)
-      {
-        //check range
-        if(Count == 0)
-          return;
-
-        if(Count > dataObj.projects.length - blobCount)
-          return AddProjectBlobs(dataObj.projects.length - blobCount);
-
-        //create a MD parser object
-        var mdParser = new showdown.Converter({ extensions: ["icon"]});
-        mdParser.setOption("openLinksInNewWindow", true);
-
-        var containerDiv = $("#project-container");
-
-        for(var projIdx = 0; projIdx < Count; ++projIdx)
-        {
-          var projData = dataObj.projects[projIdx + blobCount];
-
-          containerDiv.append(GenerateProjectHTMLBlob(projData, mdParser, imgLeft));
-          imgLeft = !imgLeft;
-        }
-
-        blobCount += Count;
-
-        if(blobCount >= dataObj.projects.length)
-        {
-          $("#show-more").hide();
-        }
-        else
-        {
-          $("#show-more-text").text("Show " + Math.min(3, dataObj.projects.length - blobCount) + " More");
-          $("#show-more").show();
-        }
-      }
-
-      function GenerateProjectHTMLBlob(projData, mdParser, imgLeft = true)
-      {
-        var TemplateData = {
-          YearString:     GenerateYearString(projData),
-          LabelsString:   GenerateLabelHTML(dataObj, projData),
-          MainPageLink:   "#",
-          SummaryString:  mdParser.makeHtml(projData.summaryMd + " ... [Read More](" + this.MainPageLink + ")"),
-          projData:       projData
-        };
-
-        var ImgLTemplate = "<div class=\"blob\">\
-                              <div class=\"row\">\
-                                <a href=\"{{MainPageLink}}\" class=\"col-md-12 visible-xs visible-sm discrete-link\">\
-                                  <h1>{{projData.projectName}} ({{YearString}})</h1>\
-                                  {{&LabelsString}}<br/>\
-                                </a>\
-                                <a href=\"{{MainPageLink}}\" class=\"col-md-3\">\
-                                  <div class=\"fader hidden-xs hidden-sm\"></div>\
-                                  <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
-                                </a>\
-                                <div class=\"col-md-9\">\
-                                  <a href=\"{{MainPageLink}}\" class=\"hidden-xs hidden-sm discrete-link\">\
-                                    <h1>{{projData.projectName}}\
-                                    {{&LabelsString}}</h1>\
-                                    <p>{{YearString}}</p></a>\
-                                  </a>\
-                                  {{&SummaryString}}\
-                                  <span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span>\
-                                </div>\
-                              </div>\
-                            </div>";
-
-        var ImgRTemplate = "<div class=\"blob\">\
-                              <div class=\"row\">\
-                                <a href=\"{{MainPageLink}}\" class=\"col-md-12 visible-xs visible-sm discrete-link\">\
-                                  <h1>{{projData.projectName}} ({{YearString}})</h1>\
-                                  {{&LabelsString}}<br/>\
-                                </a>\
-                                <a href=\"{{MainPageLink}}\" class=\"col-md-3 visible-xs visible-sm\">\
-                                    <div class=\"fadel hidden-xs hidden-sm\"></div>\
-                                    <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
-                                </a>\
-                                <div class=\"col-md-9\" style=\"padding-left:20px;\">\
-                                  <a href=\"{{MainPageLink}}\"  class=\"hidden-xs hidden-sm discrete-link\">\
-                                    <h1>{{projData.projectName}}\
-                                    {{&LabelsString}}</h1>\
-                                    <p>{{YearString}}</p>\
-                                  </a>\
-                                  {{&SummaryString}}\
-                                  <span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span>\
-                                </div>\
-                                <a href=\"{{MainPageLink}}\" class=\"col-md-3 hidden-xs hidden-sm\">\
-                                    <div class=\"fadel hidden-xs hidden-sm\"></div>\
-                                    <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
-                                </a>\
-                              </div>\
-                            </div>";
-
-        if(imgLeft)
-          return Mustache.to_html(ImgLTemplate, TemplateData);
-
-        return Mustache.to_html(ImgRTemplate, TemplateData);
-      }
-
-      function GenerateLabelHTML(dataObj, projData)
-      {
-        var LabelString = "";
-
-        for(var tagIdx = 0; tagIdx < projData.tags.length; ++tagIdx)
-        {
-          var TagData = dataObj.tagDefinitions[projData.tags[tagIdx]];
-
-          if(TagData == undefined)
-            continue;
-
-          var TagDisplayName = (TagData.displayName != undefined) ? TagData.displayName : projData.tags[tagIdx];
-
-          LabelString = LabelString + "<span class=\"label\" style=\"background-color:#" + TagData.tagColour + "\">" + TagDisplayName + "</span>";
-        }
-
-        return LabelString;
-      }
-
-      function GenerateYearString(projData)
-      {
-        var hasMonthRange = (projData.month == undefined);
-        var hasYearRange = (projData.year == undefined);
-
-        var monthStart = hasMonthRange ? projData.monthStart : projData.month;
-        var monthEnd = hasMonthRange ? projData.monthEnd : projData.month;
-
-        var yearStart = hasYearRange ? projData.yearStart : projData.year;
-        var yearEnd = hasYearRange ? projData.yearEnd : projData.year;
-
-        if(monthStart == monthEnd && yearStart == yearEnd)
-        {
-          return MonthToString(monthStart) + " " + yearStart;
-        }
-
-        return MonthToString(monthStart) + " " + yearStart + " - " + MonthToString(monthEnd) + " " + yearEnd;
-      }
-
-      function MonthToString(month)
-      {
-        switch(month)
-        {
-        case 1:
-          return "Jan";
-        case 2:
-          return "Feb";
-        case 3:
-          return "Mar";
-        case 4:
-          return "Apr";
-        case 5:
-          return "May";
-        case 6:
-          return "Jun";
-        case 7:
-          return "Jul";
-        case 8:
-          return "Aug";
-        case 9:
-          return "Sep";
-        case 10:
-          return "Oct";
-        case 11:
-          return "Nov";
-        }
-
-        return "Dec"
-      }
-
       $(document).ready(function() {
-        LoadDataFile();
+        $("#name-header").load("./resources/html/header.html");
+        LoadDataFile(function() {
+          $("#project-load-msg").hide();
+
+          if(dataObj == null)
+          {
+            alert("invalid data");
+            return;
+          }
+          
+          AddProjectBlobs(3);
+        });
       });
     </script>
   </body>
