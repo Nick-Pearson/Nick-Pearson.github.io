@@ -6,6 +6,11 @@ function qs(key)
     return match && decodeURIComponent(match[1].replace(/\+/g, " "));
 }
 
+function RefreshPage()
+{
+  location.reload();
+}
+
 //start an  AJAX request for the data JSON file
 function LoadDataFile(Func)
 {
