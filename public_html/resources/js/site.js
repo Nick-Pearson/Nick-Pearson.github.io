@@ -107,7 +107,7 @@ function GenerateProjectHTMLBlob(projData, imgLeft = true)
                             <h1>{{projData.projectName}} ({{YearString}})</h1>\
                             {{&LabelsString}}<br/>\
                           </a>\
-                          <a href=\"{{MainPageLink}}\" class=\"col-md-3\">\
+                          <a href=\"{{MainPageLink}}\" class=\"col-md-3 col-sm-12 col-xs-12\">\
                             <div class=\"fader hidden-xs hidden-sm\"></div>\
                             <img src = \"./resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
                           </a>\
@@ -129,7 +129,7 @@ function GenerateProjectHTMLBlob(projData, imgLeft = true)
                             <h1>{{projData.projectName}} ({{YearString}})</h1>\
                             {{&LabelsString}}<br/>\
                           </a>\
-                          <a href=\"{{MainPageLink}}\" class=\"col-md-3 visible-xs visible-sm\">\
+                          <a href=\"{{MainPageLink}}\" class=\"col-md-3 col-sm-12 col-xs-12 visible-xs visible-sm\">\
                               <div class=\"fadel hidden-xs hidden-sm\"></div>\
                               <img src = \"./resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
                           </a>\
@@ -142,7 +142,7 @@ function GenerateProjectHTMLBlob(projData, imgLeft = true)
                             {{&SummaryString}}\
                             <span class=\"visible-xs visible-sm\" style = \"margin-top:50px;\"></span>\
                           </div>\
-                          <a href=\"{{MainPageLink}}\" class=\"col-md-3 hidden-xs hidden-sm\">\
+                          <a href=\"{{MainPageLink}}\" class=\"col-md-3 col-sm-12 col-xs-12 hidden-xs hidden-sm\">\
                               <div class=\"fadel hidden-xs hidden-sm\"></div>\
                               <img src = \"./resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
                           </a>\
