@@ -13,9 +13,9 @@ h1, h2, h3, h4, .navbar, .btn {
 }
 
 p, .subtext, textarea, input, table, span, ul, ol {
+  color: #042F4A;
   font-family: 'Abel', sans-serif;
   font-size: 16px;
-  color: #042F4A;
 }
 
 /*
@@ -28,10 +28,10 @@ p, .subtext, textarea, input, table, span, ul, ol {
 }
 
 .content .jumbotron, .blob {
-  box-shadow: 3px 3px 0px #042F4A;
+  background-color: #eee;
   border: thin solid #042F4A;
   border-radius: 6px;
-  background-color: #eee;
+  box-shadow: 3px 3px 0 #042F4A;
 }
 
 .centered {
@@ -55,21 +55,21 @@ p, .subtext, textarea, input, table, span, ul, ol {
 .name-title
 {
   font-size: 20px;
-  text-shadow: 2px 2px 0px #aaa;
+  text-shadow: 2px 2px 0 #aaa;
 }
 
 .profile-picture
 {
-  width: 110px;
   border-radius: 55px;
-  box-shadow: 2px 2px 0px 1px #042F4A;
+  box-shadow: 2px 2px 0 1px #042F4A;
+  width: 110px;
 }
 
 .social-icons
 {
-  padding: 0;
-  margin: 0;
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .social-icons li
@@ -86,16 +86,16 @@ p, .subtext, textarea, input, table, span, ul, ol {
 
 .summary-text
 {
+  font-size: 18px;
   text-align: center;
   text-shadow: 1px 1px 3px #aaa;
-  font-size: 18px;
 }
 
 .section-title
 {
   font-size: 18px;
   text-align: center;
-  text-shadow: 2px 2px 0px #aaa;
+  text-shadow: 2px 2px 0 #aaa;
 }
 
 .project-list-title
@@ -118,7 +118,41 @@ p, .subtext, textarea, input, table, span, ul, ol {
 {
   color: #000;
   text-decoration: none;
-  text-shadow: 1px 1px 0px #aaa;
+  text-shadow: 1px 1px 0 #aaa;
+}
+
+/*
+/////////////////////////////////////////////
+// Slick
+/////////////////////////////////////////////
+*/
+
+.slick-slide:focus
+{
+  outline: none;
+}
+
+.slick-slide {
+  height: 340px;
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.slick-slide img
+{
+  border: 5px solid #fff;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before,
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before
+{
+  color: #337ab7;
 }
 
 /*
@@ -128,17 +162,17 @@ p, .subtext, textarea, input, table, span, ul, ol {
 */
 hr {
   border-top: 1px solid #042F4A;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0 10px 0;
 }
 
 footer {
-  color: #042F4A;
   background-color: #DDDDDD;
   border-top: thin solid #042F4A;
-  width: 100%;
+  color: #042F4A;
+  margin-top: 40px;
   padding: 3px;
   padding-left: 10%;
-  margin-top: 40px;
+  width: 100%;
 }
 
 /*
@@ -150,16 +184,6 @@ footer {
   margin-bottom: 30px;
 }
 
-#summary .blob {
-  background-color: #010C12;
-  color: #ccc;
-}
-
-#summary .blob p {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 .blob-link a {
   color: #ccc;
 }
@@ -168,31 +192,7 @@ footer {
   color: #fff;
   text-decoration: none;
 
-  text-shadow: 0px 0px 4px #fff;
-}
-
-
-/*
-/////////////////////////////////////////////
-// Title Block
-/////////////////////////////////////////////
-*/
-.title-block {
-  display: block;
-  text-align: center;
-
-  padding-top: 15px;
-  padding-bottom: 15px;
-
-  border-top: thin #000 solid;
-  border-bottom: thin #000 solid;
-
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.title-block h1 {
-  font-size: 18px;
+  text-shadow: 0 0 4px #fff;
 }
 
 /*
@@ -206,7 +206,7 @@ footer {
 
 @media screen and (max-width: 992px) {
   .profile-img {
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 
@@ -220,15 +220,15 @@ footer {
 }
 
 .fadeb {
-  width: 100%;
   height: 24px;
+  width: 100%;
 }
 
 .fader {
-    background: -webkit-linear-gradient(left,
-                rgba(0,0,0,0) 0%,
-                rgba(238,238,238,100) 50%);
-    right: 15px;
+  background: -webkit-linear-gradient(left,
+              rgba(0,0,0,0) 0%,
+              rgba(238,238,238,100) 50%);
+  right: 15px;
 }
 
 .fadel {
@@ -247,26 +247,16 @@ footer {
 
 /*
 /////////////////////////////////////////////
-// Anchors
-/////////////////////////////////////////////
-*/
-.anc-r {
-  position: absolute;
-  right: 50px;
-}
-
-/*
-/////////////////////////////////////////////
 // Tables
 /////////////////////////////////////////////
 */
 table {
-  width: 90%;
   margin-left: 5%;
+  width: 90%;
 }
 
 table:not(.tbl-invisible) {
-  border: thin s
+  border: thin solid #000;
 }
 
 table:not(.tbl-invisible) tr {
@@ -293,20 +283,4 @@ table:not(.tbl-invisible) tr td {
 
 table:not(.tbl-invisible) tr td:last-child {
   border-right:  none;
-}
-
-/*
-/////////////////////////////////////////////
-// Labels
-/////////////////////////////////////////////
-*/
-
-.label-year
-{
-  background-color: #337ab7;
-}
-
-.label-win10
-{
-  background-color: #337ab7;
 }

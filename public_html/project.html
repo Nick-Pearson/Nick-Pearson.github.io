@@ -14,6 +14,10 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="./components/bootstrap/dist/css/bootstrap.min.css"/>
 
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="./components/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./components/slick-carousel/slick/slick-theme.css"/>
+
     <!-- fonts -->
     <link href='https://fonts.googleapis.com/css?family=Abel|Press+Start+2P' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/d0bcbf8988.js"></script>
@@ -49,12 +53,14 @@
     <!-- Scripts -->
     <script src="./components/jquery/dist/jquery.min.js"></script>
 
-    <script src="../components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="./components/showdown/dist/showdown.js"></script>
     <script src="./components/showdown-icon/showdown-icon.js"></script>
 
     <script src="./components/mustache.js/mustache.js"></script>
+
+    <script src="./components/slick-carousel/slick/slick.min.js"></script>
 
     <script src="./resources/js/site.js"></script>
 
@@ -110,7 +116,18 @@
           if (this.readyState == 4)
           {
             if(this.status == 200) {
-              $("#project-article-container").html(mdParser.makeHtml(this.responseText));
+              var SlideshowHtml = GenerateSlideshowHtml(projData);
+
+              $("#project-article-container").html("<div class=\"col-md-10 col-md-offset-1\">" + SlideshowHtml + "</div><div class=\"col-md-1\"></div>");
+              var slides = $(".slideshow");
+              $(".slideshow").slick({
+                lazyLoad: 'ondemand',
+                dots: true,
+                infinite: true,
+                speed: 300
+              });
+
+              $("#project-article-container").append(mdParser.makeHtml(this.responseText));
             }
             else {
               $("#project-article-container").html(Mustache.to_html(ErrorTemplate, {ErrorMessage: "Project article failed to load", ErrorTitle: ""}));

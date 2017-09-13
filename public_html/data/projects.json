@@ -22,7 +22,8 @@
       "yearStart": 2016,
       "yearEnd": 2017,
       "summaryImage":"projects/di2/DI2_Gamescon.jpg",
-      "summaryMd": "I worked on this upcoming AAA title as part of my placement year at [Sumo Digital @fa-external-link ](http://sumo-digital.com/)"
+      "summaryMd": "I worked on this upcoming AAA title as part of my placement year at [Sumo Digital @fa-external-link ](http://sumo-digital.com/)",
+      "galleryImages":[]
     },
     {
       "projectName": "Dawn of the Fireflies",
@@ -32,7 +33,8 @@
       "month": 6,
       "year": 2017,
       "summaryImage":"projects/fireflies/library0.jpg",
-      "summaryMd": "A dark and moody 3rd person puzzle platformer game using a [Tobii @fa-external-link ](https://tobiigaming.com/) eye tracking device as an input method. I worked on this in a team of 6 as a part of the 2 week internal studio game jam whilst at Sumo Digital"
+      "summaryMd": "A dark and moody 3rd person puzzle platformer game using a [Tobii @fa-external-link ](https://tobiigaming.com/) eye tracking device as an input method. I worked on this in a team of 6 as a part of the 2 week internal studio game jam whilst at Sumo Digital",
+      "galleryImages":[]
     },
     {
       "projectName": "Smuggler's Paradise",
@@ -42,7 +44,13 @@
       "month": 8,
       "year": 2016,
       "summaryImage":"projects/smugglers/smugglers0.png",
-      "summaryMd": "2D cartoon style space shooter game, trade items across different planets while dodging obsticals on the way. Spend money upgrading and improving your ship. Created for the Rising Star GameJam round in 2 weeks for Universal Windows Platforms"
+      "summaryMd": "2D cartoon style space shooter game, trade items across different planets while dodging obsticals on the way. Spend money upgrading and improving your ship. Created for the Rising Star GameJam round in 2 weeks for Universal Windows Platforms",
+      "galleryImages":[
+        "projects/smugglers/smugglers0.png",
+        "projects/smugglers/smugglers2.png",
+        "projects/smugglers/smugglers1.png",
+        "projects/smugglers/smugglers3.png"
+      ]
     }
   ]
 }

@@ -109,7 +109,7 @@ function GenerateProjectHTMLBlob(projData, imgLeft = true)
                           </a>\
                           <a href=\"{{MainPageLink}}\" class=\"col-md-3\">\
                             <div class=\"fader hidden-xs hidden-sm\"></div>\
-                            <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
+                            <img src = \"./resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
                           </a>\
                           <div class=\"col-md-9\">\
                             <a href=\"{{MainPageLink}}\" class=\"hidden-xs hidden-sm discrete-link\">\
@@ -131,7 +131,7 @@ function GenerateProjectHTMLBlob(projData, imgLeft = true)
                           </a>\
                           <a href=\"{{MainPageLink}}\" class=\"col-md-3 visible-xs visible-sm\">\
                               <div class=\"fadel hidden-xs hidden-sm\"></div>\
-                              <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
+                              <img src = \"./resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
                           </a>\
                           <div class=\"col-md-9\" style=\"padding-left:20px;\">\
                             <a href=\"{{MainPageLink}}\"  class=\"hidden-xs hidden-sm discrete-link\">\
@@ -144,7 +144,7 @@ function GenerateProjectHTMLBlob(projData, imgLeft = true)
                           </div>\
                           <a href=\"{{MainPageLink}}\" class=\"col-md-3 hidden-xs hidden-sm\">\
                               <div class=\"fadel hidden-xs hidden-sm\"></div>\
-                              <img src = \"../resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
+                              <img src = \"./resources/image/{{projData.summaryImage}}\" width=\"100%\" class=\"profile-img\"/>\
                           </a>\
                         </div>\
                       </div>";
@@ -172,6 +172,21 @@ function GenerateLabelHTML(dataObj, projData)
   }
 
   return LabelString;
+}
+
+function GenerateSlideshowHtml(projData)
+{
+  var SlidesHTML = "";
+  var SlideTemplate = "<div><img data-lazy=\"./resources/image/{{imgURL}}\"/></div>";
+
+  for(var imgIdx = 0; imgIdx < projData.galleryImages.length; ++imgIdx)
+  {
+    TemplateData = { imgURL: projData.galleryImages[imgIdx] };
+
+    SlidesHTML += Mustache.to_html(SlideTemplate, TemplateData);
+  }
+
+  return "<div class=\"slideshow\">" + SlidesHTML + "</div>";
 }
 
 function GenerateYearString(projData)
