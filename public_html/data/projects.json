@@ -16,7 +16,6 @@
       "projectName": "Dead Island 2",
       "projectID": "di2",
       "tags": ["PC", "XBoxOne", "PS4"],
-      "mainPageData": "di2.md",
       "monthStart": 6,
       "monthEnd": 8,
       "yearStart": 2016,
@@ -34,7 +33,13 @@
       "year": 2017,
       "summaryImage":"projects/fireflies/library0.jpg",
       "summaryMd": "A dark and moody 3rd person puzzle platformer game using a [Tobii @fa-external-link ](https://tobiigaming.com/) eye tracking device as an input method. I worked on this in a team of 6 as a part of the 2 week internal studio game jam whilst at Sumo Digital",
-      "galleryImages":[]
+      "galleryImages":[
+        "projects/fireflies/library0.jpg",
+        "projects/fireflies/library1.jpg",
+        "projects/fireflies/forest0.jpg",
+        "projects/fireflies/corridor1.jpg",
+        "projects/fireflies/corridor0.jpg"
+      ]
     },
     {
       "projectName": "Smuggler's Paradise",
@@ -50,6 +55,23 @@
         "projects/smugglers/smugglers2.png",
         "projects/smugglers/smugglers1.png",
         "projects/smugglers/smugglers3.png"
+      ]
+    },
+    {
+      "projectName": "Transport Game",
+      "projectID": "transport",
+      "tags": ["PC", "Unity", "cs"],
+      "mainPageData": "transport.md",
+      "monthStart": 6,
+      "monthEnd": 12,
+      "yearStart": 2015,
+      "yearEnd": 2016,
+      "summaryImage":"projects/transport/transport2.jpg",
+      "summaryMd": "Game created for a Youtube tutorial series, focusing on creating a Tycoon style strategy game in Unity. The video series currently has around 41k views on youtube",
+      "galleryImages":[
+        "projects/transport/transport2.jpg",
+        "projects/transport/transport0.jpg",
+        "projects/transport/transport1.jpg"
       ]
     }
   ]

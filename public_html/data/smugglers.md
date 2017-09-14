@@ -36,7 +36,7 @@ positioned in hard to reach areas to reward more skilled players. This idea coul
 
 ## Result
 
-Despite the numerous issues with my entry I passed through to the final round, and after coming Runner Up was offered a 1 year Placement with Sumo Digital (see [Dead Island 2](/project.html?p=di2))
+Despite the numerous issues with my entry I passed through to the final round, and after coming Runner Up was offered a 1 year Placement with Sumo Digital.
 
 I later found out via the Documentary series about the process that the main reason I had progressed to the final round was due to my code quality.
 
