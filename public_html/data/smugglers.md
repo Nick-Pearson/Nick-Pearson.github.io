@@ -71,7 +71,7 @@ There was also some very positive feedback
 
 ## Links
 
- * [Source Code (Github Clone) @fa-external-link ](https://github.com/Nick-Pearson/SmugglersParadise)
- * [Windows Store App Download Page @fa-external-link ](https://www.microsoft.com/en-gb/store/p/smugglers-paradise/9nblggh4qgc4)
- * [Finalists Announcement @fa-external-link ](http://gradsingames.com/search-for-a-star/sfas-rs-2016-finalists/)
- * [Playlist for the Documentary Series @fa-external-link ](https://www.youtube.com/playlist?list=PLV395U2mwlfLyXmpR8hIFUro0pBrpOE5n)
+*   [Source Code (Github Clone) @fa-external-link ](https://github.com/Nick-Pearson/SmugglersParadise)
+*   [Windows Store App Download Page @fa-external-link ](https://www.microsoft.com/en-gb/store/p/smugglers-paradise/9nblggh4qgc4)
+*   [Finalists Announcement @fa-external-link ](http://gradsingames.com/search-for-a-star/sfas-rs-2016-finalists/)
+*   [Playlist for the Documentary Series @fa-external-link ](https://www.youtube.com/playlist?list=PLV395U2mwlfLyXmpR8hIFUro0pBrpOE5n)
