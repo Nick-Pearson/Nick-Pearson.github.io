@@ -8,7 +8,8 @@
     "cpp":      {"tagColour": "b73351", "displayName": "C++"},
     "cs":       {"tagColour": "b78133", "displayName": "C#"},
     "UE4":      {"tagColour": "b5b733"},
-    "Unity":    {"tagColour": "b7338d"}
+    "Unity":    {"tagColour": "b7338d"},
+    "Facebook": {"tagColour": "337ab7"}
   },
   "projects" :
   [
@@ -67,12 +68,25 @@
       "yearStart": 2015,
       "yearEnd": 2016,
       "summaryImage":"projects/transport/transport2.jpg",
-      "summaryMd": "Game created for a Youtube tutorial series, focusing on creating a Tycoon style strategy game in Unity. The video series currently has around 41k views on youtube",
+      "summaryMd": "Game created for a Youtube tutorial series, focusing on creating a Tycoon style strategy game in Unity. The video series currently has over 41k views on youtube",
       "galleryImages":[
         "projects/transport/transport2.jpg",
         "projects/transport/transport0.jpg",
         "projects/transport/transport1.jpg"
       ]
+    },
+    {
+      "projectName": "Cow Smash",
+      "projectID": "smash",
+      "tags": ["Facebook", "Unity", "cs"],
+      "mainPageData": "smash.md",
+      "monthStart": 6,
+      "monthEnd": 12,
+      "yearStart": 2015,
+      "yearEnd": 2016,
+      "summaryImage":"projects/transport/transport2.jpg",
+      "summaryMd": "Infinite runner game where you play as a Cow, created for the Facebook App platform",
+      "galleryImages":[]
     }
   ]
 }
