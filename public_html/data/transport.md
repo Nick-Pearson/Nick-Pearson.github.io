@@ -1,10 +1,10 @@
 ## Gameplay
 
-Standard top down RTS game, similar to games such as OpenTTD and Simutrans. The intention was to add elements from Cities Skylines, with splines being used for roads and railways. I also wanted to add an infinite procedural terrain so that the player can expand their game at any point.
+A Standard top down Real Time Strategy game, similar to games such as OpenTTD and Simutrans. The intention was to add elements from Cities: Skylines, with splines being used for roads and railways. I also wanted to add an infinite procedural terrain so that the player can expand their game at any point.
 
 ## Code
 
-Most of the series focused on the procedural terrain and editing system, using the Diamond Square fractal algorithm. A tile system of 9 Unity terrains linked each one together. Diamond Square does not automatically link when two different tiles are generated so I added a system of pre-placed vertexes to ensure that the edges of each tile attached seamlessly to it's neighbor.
+Most of the series focused on the procedural terrain and editing system, using the Diamond Square fractal algorithm. A tile system of 9 Unity terrains linked each one together. Diamond Square does not automatically link when two different tiles are generated so I added a system of pre-placed vertices to ensure that the edges of each tile attached seamlessly to it's neighbour.
 
 ## Result
 

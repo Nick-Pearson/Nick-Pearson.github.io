@@ -22,7 +22,7 @@
       "yearStart": 2016,
       "yearEnd": 2017,
       "summaryImage":"projects/di2/DI2_Gamescon.jpg",
-      "summaryMd": "I worked on this upcoming AAA title as part of my placement year at [Sumo Digital @fa-external-link ](http://sumo-digital.com/)",
+      "summaryMd": "An upcoming AAA title I worked on as part of my placement year at [Sumo Digital @fa-external-link ](http://sumo-digital.com/). I was part of the gameplay programming team and worked on a large variaty of game features often integrating closely with UI",
       "galleryImages":[]
     },
     {
@@ -50,7 +50,7 @@
       "month": 8,
       "year": 2016,
       "summaryImage":"projects/smugglers/smugglers0.png",
-      "summaryMd": "2D cartoon style space shooter game, trade items across different planets while dodging obstacles on the way. Spend money upgrading and improving your ship. Created for the Rising Star GameJam round in 2 weeks for Universal Windows Platforms",
+      "summaryMd": "A 2D cartoon style space shooter game, in which players could trade items across different planets while dodging obstacles on the way. Spend money upgrading and improving your ship. Created for the Rising Star GameJam round in 2 weeks for Universal Windows Platforms",
       "galleryImages":[
         "projects/smugglers/smugglers0.png",
         "projects/smugglers/smugglers2.png",
@@ -68,7 +68,7 @@
       "yearStart": 2015,
       "yearEnd": 2016,
       "summaryImage":"projects/transport/transport2.jpg",
-      "summaryMd": "Game created for a Youtube tutorial series, focusing on creating a Tycoon style strategy game in Unity. The video series currently has over 41k views on youtube",
+      "summaryMd": "A Game created for a Youtube tutorial series, focusing on creating a Tycoon style strategy game in Unity. The video series currently has over 41k views on youtube",
       "galleryImages":[
         "projects/transport/transport2.jpg",
         "projects/transport/transport0.jpg",
@@ -80,13 +80,14 @@
       "projectID": "smash",
       "tags": ["Facebook", "Unity", "cs"],
       "mainPageData": "smash.md",
-      "monthStart": 6,
-      "monthEnd": 12,
-      "yearStart": 2015,
-      "yearEnd": 2016,
-      "summaryImage":"projects/transport/transport2.jpg",
-      "summaryMd": "Infinite runner game where you play as a Cow, created for the Facebook App platform",
-      "galleryImages":[]
+      "year": 2013,
+      "summaryImage":"projects/smash/smash2.jpg",
+      "summaryMd": "An infinite runner game where you play as a Cow, created for the Facebook App platform",
+      "galleryImages":[
+        "projects/smash/smash0.jpg",
+        "projects/smash/smash1.jpg",
+        "projects/smash/smash2.jpg"
+      ]
     }
   ]
 }

@@ -357,6 +357,8 @@ function MonthToString(month)
 {
   switch(month)
   {
+  case undefined:
+    return "";
   case 1:
     return "Jan";
   case 2:

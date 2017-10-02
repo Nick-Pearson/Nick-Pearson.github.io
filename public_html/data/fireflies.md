@@ -4,13 +4,13 @@ You play as a child called *"Dawn"*, playing through her distorted dream world w
 
 ## Code
 
-Although the Tobi eye tracker has a plugin for Unreal Engine it took a lot of work to get the control to work with our game and feel right. We only had a few trackers so this was handled by another programmer on the team.
+I worked on the light system, tracking lights in a radius around the player based on the light's settings. As the light moved further away or became irrelevant to the player it would no longer be considered. Each frame the system would then look through the relevant lights and determine their value based on the player's distance. On top of this was collision detection so that when an object passed in front of a light it would block the player from receiving that light's value. This meant as the player moved in and out of shadows they would recieve varying levels of light, this was to enable a swinging chandelier puzzle that unfortunately we didn't have time to build.
 
-I worked on the light system, as unreal uses a deffered rendering model we originally thought we could read values from this but it wasn't possible to do on our timeframe. Additionally, it would be difficult to determine the players location in the buffer, and even then they may be lit in places not currently visible to the camera. Instead the system tracked lights in a radius around the player based on the light's settings, it would then regularly look through the local lights and determine their value based on the player's distance. On top of this was collision detection so that when an object passed in front of a light it would block the player from receiving that light's value.
+The Tobi eye tracker had a plugin for Unreal Engine, however it took a considerable amount of work to get the control to function with our game and feel right as you played. We only had a few trackers so this was handled mainly by the other programmer on the team who owned a tracker.
 
 ## Result
 
-The game was shown to other Employees and Judges at the end of the two weeks, although it ran and the eye tracking was generally well received there were a few issues. The game was difficult to balance as slight changes by artists / designers could drastically affect the balance of a level. If we had done a full balancing pass on the levels it would have been much better, looking back the light system should have had hard coded values so that visual changes would not affect gameplay.
+The game was shown to other Employees and Judges at the end of the two weeks, the eye tracking and visual style were very well received but there were a few issues. The game was difficult to balance as slight changes by artists / designers could drastically affect the balance of a level. If we had done a full balancing pass on the levels it would have been much better, looking back the light system should have had hard coded values so that visual changes could be made without drastically changing gameplay.
 
 I really enjoyed the process and the game had an excellent aesthetic, Eurogamer wrote an article about the game jam process and we get a short mention there (see links)
 
