@@ -1,0 +1,11 @@
+title: "Nick Pearson"
+author: "Nick Pearson"
+description: "Programmer"
+logo: ./favicon.ico
+social:
+  name: Nick Pearson
+  links:
+    - https://uk.linkedin.com/pub/nick-pearson/64/776/340
+    - https://github.com/Nick-Pearson
+plugins:
+  - jekyll-seo-tag
