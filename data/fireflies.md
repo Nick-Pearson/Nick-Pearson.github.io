@@ -4,7 +4,7 @@ You play as a child called *"Dawn"*, playing through her distorted dream world w
 
 ## Code
 
-I worked on the light system, tracking lights in a radius around the player based on the light's settings. As the light moved further away or became irrelevant to the player it would no longer be considered. Each frame the system would then look through the relevant lights and determine their value based on the player's distance. On top of this was collision detection so that when an object passed in front of a light it would block the player from receiving that light's value. This meant as the player moved in and out of shadows they would recieve varying levels of light, this was to enable a swinging chandelier puzzle that unfortunately we didn't have time to build.
+I worked on the light system, tracking lights in a radius around the player based on the light's settings. As the light moved further away or became irrelevant to the player it would no longer be considered. Each frame the system would then look through the relevant lights and determine their value based on the player's distance. On top of this was collision detection so that when an object passed in front of a light it would block the player from receiving that light's value. This meant as the player moved in and out of shadows they would receive varying levels of light, this was to enable a swinging chandelier puzzle that unfortunately we didn't have time to build.
 
 The Tobi eye tracker had a plugin for Unreal Engine, however it took a considerable amount of work to get the control to function with our game and feel right as you played. We only had a few trackers so this was handled mainly by the other programmer on the team who owned a tracker.
 

@@ -14,6 +14,24 @@
   "projects" :
   [
     {
+      "projectName": "Escape the CIA",
+      "projectID": "cia",
+      "tags": ["PC", "Unity", "cs"],
+      "mainPageData": "cia.md",
+      "month": 1,
+      "year": 2019,
+      "summaryImage":"projects/cia/shot6.jpg",
+      "summaryMd": "A wacky arcade stealth shooter created for the Search for a Star game jam",
+      "galleryImages":[
+        "projects/cia/shot6.jpg",
+        "projects/cia/shot1.jpg",
+        "projects/cia/shot2.jpg",
+        "projects/cia/shot3.jpg",
+        "projects/cia/shot5.jpg",
+        "projects/cia/shot7.jpg"
+      ]
+    },
+    {
       "projectName": "Full Metal Runners",
       "projectID": "runners",
       "tags": ["PC", "cpp", "UE4"],
