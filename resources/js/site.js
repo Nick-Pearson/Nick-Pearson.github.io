@@ -90,8 +90,8 @@ function MakeTemplateData(projData)
   TemplateData.LabelsString =   GenerateLabelHTML(dataObj, projData);
   TemplateData.HasMainPage = projData.mainPageData != undefined;
   TemplateData.MainPageLink =   "./project.html?p=" + projData.projectID;
-  TemplateData.SummaryString =  mdParser.makeHtml(projData.summaryMd + " ... __[Read More](" + TemplateData.MainPageLink + ")__");
   TemplateData.SummaryStringMain =  mdParser.makeHtml(projData.summaryMd);
+  TemplateData.SummaryString =  TemplateData.SummaryStringMain.substr(0, TemplateData.SummaryStringMain.length - 4) + "... <a href=\"" + TemplateData.MainPageLink + "\">Read More</a></p>";
   TemplateData.projData =       projData;
 
   return TemplateData;
