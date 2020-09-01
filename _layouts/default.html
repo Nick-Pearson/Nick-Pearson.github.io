@@ -10,81 +10,25 @@
     {% seo %}
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="./resources/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>
 
     <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="./resources/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="./resources/css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/slick-theme.css"/>
 
     <!-- fonts -->
     <link href='https://fonts.googleapis.com/css?family=Abel|Press+Start+2P' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/d0bcbf8988.js"></script>
 
-    <link rel="stylesheet" href="./resources/css/style.css"/>
+    <link rel="stylesheet" href="/resources/css/style.css"/>
 
-    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
 
   </head>
 
   <body>
     <div class="container" {% if page.contentheight %}style="height:{{page.contentheight}}"{% endif %}>
-      <noscript>
-        <h1>You must have javascript enabled to view this website</h1>
-      </noscript>
-
-      {% unless page.hideheader %}
-      <div id="name-header">
-        <div class="name-header name-header-large row">
-          <div class="col-md-2 col-md-offset-4">
-            <a href="index.html">
-              <img src="./resources/image/profile.jpg" class="profile-picture"/>
-            </a>
-          </div>
-
-          <div class="col-md-3">
-            <a href="index.html" class="discrete-link">
-              <h1 class="name-title">Nick Pearson</h1>
-            </a>
-            <span class="location-text">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <span class="sr-only">Location:</span>
-               BRISTOL, UK
-            </span>
-
-            <ul class="social-icons">
-
-              <!-- Email -->
-              <li>
-                <a href="mailto:nick@pearsoncgi.net" target="_blank">
-                  <i class="fa fa-envelope-square fa-5x" aria-hidden="true"></i>
-                  <span class="sr-only">Email</span>
-                </a>
-              </li>
-
-              <!-- LinkedIn -->
-              <li>
-                <a href="http://uk.linkedin.com/pub/nick-pearson/64/776/340" target="_blank">
-                  <i class="fa fa-linkedin-square fa-5x" aria-hidden="true"></i>
-                  <span class="sr-only">LinkedIn</span>
-                </a>
-              </li>
-
-              <!-- GitHub -->
-              <li>
-                <a href="https://github.com/Nick-Pearson" target="_blank">
-                  <i class="fa fa-github-square fa-5x" aria-hidden="true"></i>
-                  <span class="sr-only">Github</span>
-                </a>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-      {% endunless %}
-
       {{content}}
-
     </div>
 
     <footer {% if page.pinfooter %}style="position:absolute; bottom: 0;"{% endif %}>
@@ -94,18 +38,18 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="./resources/js/jquery.min.js"></script>
+    <script src="/resources/js/jquery.min.js"></script>
 
-    <script src="./resources/js/bootstrap.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
 
-    <script src="./resources/js/showdown.min.js"></script>
-    <script src="./resources/js/showdown-icon.js"></script>
+    <script src="/resources/js/showdown.min.js"></script>
+    <script src="/resources/js/showdown-icon.js"></script>
 
-    <script src="./resources/js/mustache.min.js"></script>
+    <script src="/resources/js/mustache.min.js"></script>
 
-    <script src="./resources/js/slick.min.js"></script>
+    <script src="/resources/js/slick.min.js"></script>
 
-    <script src="./resources/js/site.js"></script>
+    <script src="/resources/js/site.js"></script>
 
   </body>
 </html>

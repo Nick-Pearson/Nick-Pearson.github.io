@@ -1,3 +1,19 @@
+---
+tags: ["PC", "cpp", "UE4"]
+category: "Project Overview"
+title: "Project Overview - Dawn of the Fireflies"
+excerpt_separator: <!--more-->
+---
+
+A dark and moody 3rd person puzzle platformer game using a [Tobii @fa-external-link ](https://tobiigaming.com/) eye tracking device as an input method. I worked on this in a team of 6 as a part of the 2 week internal studio game jam whilst at Sumo Digital
+<!--more-->
+
+<!-- "projects/fireflies/library0.jpg",
+"projects/fireflies/library1.jpg",
+"projects/fireflies/forest0.jpg",
+"projects/fireflies/corridor1.jpg",
+"projects/fireflies/corridor0.jpg" -->
+
 ## Gameplay
 
 You play as a child called *"Dawn"*, playing through her distorted dream world while she is in a coma. She has a jar of fireflies on her back which are her health, when the player is in dark areas the health slowly degrades. Using the eye tracking technology, the player can move items in the world with her mind and create light (e.g. by breaking shutters in front of a window, or lighting a candle). This allows them to progress through the new light areas.

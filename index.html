@@ -5,49 +5,33 @@ layout: default
   <div class="col-md-6 col-md-offset-3">
     <hr>
 
-    <p class="summary-text">Experienced programmer and indie game developer. Currently interested in automated testing of games</p>
+    <p class="summary-text">Me</p>
   </div>
 </div>
 
 <hr>
-
-<h1 class="section-title">Projects</h1>
 
 <div id="project-container">
+  {% for post in site.posts %}
+    <div class="blob">
+      <div class="row">
+        <a href="{{ post.url }}" class="col-md-12 visible-xs visible-sm centered discrete-link">
+          <h1>{{ post.title }} ({{ post.date }})</h1>
+          <br/>
+        </a>
+        <a href="{{ post.url }}" class="col-md-3 col-sm-12 col-xs-12">
+          <div class="fader hidden-xs hidden-sm"></div>
+          <img src = "./resources/image/{{projData.summaryImage}}" width="100%" class="profile-img"/>
+        </a>
+        <div class="col-md-9">
+          <a href="{{ post.url }}" class="hidden-xs hidden-sm discrete-link">
+            <h1>{{ post.title }}</h1>
+            <p>{{post.date}}</p>
+          </a>
+          {{ post.excerpt }}
+          <span class="visible-xs visible-sm" style = "margin-top:50px;"></span>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
 </div>
-
-<p id="project-load-msg" class="centered" style="font-size: 20px;"><i class="fa fa-cog fa-spin fa-fw" aria-hidden="true"></i><span class="sr-only">Loading...</span></p>
-
-<p id="show-more" class="centered" style="display: none;"><a href = "javascript:AddProjectBlobs(3);"><i class="fa fa-caret-down" aria-hidden="true"></i> <span id="show-more-text">Show 3 More</span> <i class="fa fa-caret-down" aria-hidden="true"></i></a></p>
-
-<hr>
-
-<h1 class="section-title">Skills</h1>
-
-<div class="row">
-  <div class="col-lg-10 col-lg-offset-2 col-md-11 col-md-offset-1">
-    <ul class="fa-ul large-list">
-      <li><i class="fa-li fa fa-graduation-cap"></i>MEng Computer Science at University of Bristol (graduating 2019)</li>
-      <li><i class="fa-li fa fa-code"></i>Programming experience in many languages including C/C++ and both Unity and Unreal Engine experience</li>
-      <li><i class="fa-li fa fa-handshake-o"></i>Industry experience on a large AAA project and indie projects</li>
-      <li><i class="fa-li fa fa-code-fork"></i>Source Control using Git and Perforce</li>
-      <li><i class="fa-li fa fa-linux"></i>Comforatable on Windows and Linux Operating Systems</li>
-    </ul>
-  </div>
-</div>
-
-<script type="text/javascript">
-  window.onload = function() {
-    LoadDataFile(function() {
-      $("#project-load-msg").hide();
-
-      if(dataObj == null)
-      {
-        alert("invalid data");
-        return;
-      }
-
-      AddProjectBlobs(4);
-    });
-  };
-</script>

@@ -1,3 +1,18 @@
+---
+tags: ["UWP", "Unity", "cs"]
+category: "Project Overview"
+title: "Project Overview - Smuggler's Paradise"
+excerpt_separator: <!--more-->
+---
+
+A 2D cartoon style space shooter game, in which players could trade items across different planets while dodging obstacles on the way. Spend money upgrading and improving your ship. Created for the Rising Star GameJam round in 2 weeks for Universal Windows Platforms
+<!--more-->
+
+<!-- "projects/smugglers/smugglers0.png",
+"projects/smugglers/smugglers2.png",
+"projects/smugglers/smugglers1.png",
+"projects/smugglers/smugglers3.png" -->
+
 ## Gameplay
 
 The game is divided into two parts; a menu system which allows you to modify and repair the ship as well as being able to select new missions, and the live game where the player drives the ship to their next destination (dodging various obstacles on the way).

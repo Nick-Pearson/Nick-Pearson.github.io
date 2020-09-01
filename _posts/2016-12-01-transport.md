@@ -1,3 +1,17 @@
+---
+tags: ["PC", "Unity", "cs"]
+category: "Project Overview"
+title: "Project Overview - Transport Game"
+excerpt_separator: <!--more-->
+---
+
+A Game created for a Youtube tutorial series, focusing on creating a Tycoon style strategy game in Unity. The video series currently has over 41k views on youtube"
+<!--more-->
+
+<!-- "projects/transport/transport2.jpg",
+"projects/transport/transport0.jpg",
+"projects/transport/transport1.jpg" -->
+
 ## Gameplay
 
 A Standard top down Real Time Strategy game, similar to games such as OpenTTD and Simutrans. The intention was to add elements from Cities: Skylines, with splines being used for roads and railways. I also wanted to add an infinite procedural terrain so that the player can expand their game at any point.
