@@ -1,4 +1,5 @@
 ---
+layout: post
 tags: ["UWP", "Unity", "cs"]
 category: "Project Overview"
 title: "Project Overview - Smuggler's Paradise"

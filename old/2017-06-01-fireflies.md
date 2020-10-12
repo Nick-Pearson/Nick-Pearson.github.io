@@ -1,4 +1,5 @@
 ---
+layout: post
 tags: ["PC", "cpp", "UE4"]
 category: "Project Overview"
 title: "Project Overview - Dawn of the Fireflies"

@@ -3,22 +3,17 @@
   <head>
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <meta name=keywords content="Game, Programmer, Development, C#, Unity, Unreal Engine. UE4, Sumo Digital, Rising Star, C++, Blender">
 
     {% seo %}
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>
-
-    <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="/resources/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/slick-theme.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Abel|Press+Start+2P' rel='stylesheet' type='text/css'>
-    <script src="https://use.fontawesome.com/d0bcbf8988.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/resources/css/style.css"/>
 
@@ -27,29 +22,37 @@
   </head>
 
   <body>
-    <div class="container" {% if page.contentheight %}style="height:{{page.contentheight}}"{% endif %}>
-      {{content}}
+    <div class="container-fluid" {% if page.contentheight %}style="height:{{page.contentheight}}"{% endif %}>
+      <div class="row">
+        <div class="col-md-3 title-box">
+          <h1>Nick Pearson</h1>
+          <p>Games programming things</p>
+          <!-- socials -->
+          <!-- site navigation -->
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/index.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/portolfio.html">Games Portfolio</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-9 main-content">
+          {{content}}
+        </div>
+      </div>
+      
+      <footer>
+        © {{ "now" | date: "%Y" }}
+      </footer>
     </div>
 
-    <footer {% if page.pinfooter %}style="position:absolute; bottom: 0;"{% endif %}>
-      <p>
-        Source code for this site is availible on <a href="https://github.com/Nick-Pearson/ProfileWebsite" target="_blank">GitHub <i class="fa fa-external-link"></i></a>
-      </p>
-    </footer>
-
     <!-- Scripts -->
-    <script src="/resources/js/jquery.min.js"></script>
-
-    <script src="/resources/js/bootstrap.min.js"></script>
-
-    <script src="/resources/js/showdown.min.js"></script>
-    <script src="/resources/js/showdown-icon.js"></script>
-
-    <script src="/resources/js/mustache.min.js"></script>
-
-    <script src="/resources/js/slick.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="/resources/js/site.js"></script>
-
   </body>
 </html>
