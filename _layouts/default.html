@@ -25,9 +25,24 @@
     <div class="container-fluid" {% if page.contentheight %}style="height:{{page.contentheight}}"{% endif %}>
       <div class="row">
         <div class="col-md-3 title-box">
-          <h1>Nick Pearson</h1>
-          <p class="tagline">Programming & side projects</p>
-          <!-- socials -->
+          <div class="name-wrapper">
+            <h1>Nick Pearson</h1>
+            <p class="tagline">Gamedev and other programming side projects</p>
+            <!-- socials -->
+            <div class="socials">
+              <a href="https://github.com/Nick-Pearson" target="_blank">
+                <div class="icon">
+                  {% include github.svg %}
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/nick-pearson-34077664/" target="_blank">
+                <div class="icon">
+                  {% include linkedin.svg %}
+                </div>
+              </a>
+            </div>
+          </div>
+
           <!-- site navigation -->
           <ul class="nav flex-column">
             {% for node in site.data.nav %}

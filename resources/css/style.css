@@ -40,7 +40,7 @@ a:hover
 
 .title-box
 {
-  padding: 20px 0 0 35px;
+  padding-top: 20px;
 }
 
 .main-content
@@ -110,4 +110,40 @@ u
 {  
   padding-left: 15px;
   margin-top: -10px;
+}
+
+.socials
+{
+  margin: 10px auto 20px auto;
+}
+
+.socials .icon
+{
+  display: inline;
+  padding: 0 3px 0 3px;
+}
+
+.socials svg
+{
+  width: 30px;
+  height: 30px;
+  fill: #DDDDDD;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.socials svg:hover
+{
+  fill: #BBBBBB;
+}
+
+.socials a:hover
+{
+  text-decoration: none;
+}
+
+.name-wrapper
+{
+  width: 100%;
+  text-align: center;
 }

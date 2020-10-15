@@ -10,6 +10,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ```java
 private int testMethod(String[] params)
 {
+    int local = 5;
+    local++;
+    System.out.println("Value: " + local);
     return 0;
 }
 ```
