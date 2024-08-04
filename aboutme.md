@@ -1,16 +1,13 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Hi I'm Nick, 👋
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Welcome to my collection of personal projects and research articles. This site is primarily for my own enjoyment, but I'm glad if you find it useful!
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+Since 2019 I have been working at [BidFX](https://www.bidfx.com/) developing low latency systems in Java for the finance industry. I also previously worked at [Sumo Digital](https://www.sumo-digital.com/) from 2016-17 as a gameplay programmer for a AAA game project in C++
 
-What else do you need?
+If you'd like to talk more, feel free to reach my on LinkedIn,
 
-### My story
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+Nick
