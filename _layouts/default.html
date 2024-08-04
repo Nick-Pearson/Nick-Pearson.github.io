@@ -1,80 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset=utf-8>
-    <meta http-equiv=X-UA-Compatible content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+---
+layout: base
+---
 
-    <meta name=keywords content="Game, Programmer, Development, C#, Unity, Unreal Engine. UE4, Sumo Digital, Rising Star, C++, Blender">
+<div class="intro-header"></div>
 
-    {% seo %}
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Roboto&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/resources/css/style.css"/>
-
-    <link rel="shortcut icon" href="/favicon.ico">
-
-  </head>
-
-  <body>
-    <div class="container-fluid" {% if page.contentheight %}style="height:{{page.contentheight}}"{% endif %}>
-      <div class="row">
-        <div class="col-md-3 title-box">
-          <div class="name-wrapper">
-            <h1>Nick Pearson</h1>
-            <p class="tagline">Gamedev and other programming side projects</p>
-            <!-- socials -->
-            <div class="socials">
-              <a href="https://github.com/Nick-Pearson" target="_blank">
-                <div class="icon">
-                  {% include github.svg %}
-                </div>
-              </a>
-              <a href="https://www.linkedin.com/in/nick-pearson-34077664/" target="_blank">
-                <div class="icon">
-                  {% include linkedin.svg %}
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- site navigation -->
-          <ul class="nav flex-column">
-            {% for node in site.data.nav %}
-              {% if page.url == node.url %}
-                <li class="nav-item">
-                  <a class="nav-link active" href="{{node.url}}">
-                    <u>{{node.title}}</u>
-                  </a>
-                </li>
-              {% else %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{{node.url}}">{{node.title}}</a>
-                </li>
-              {% endif %}
-            {% endfor %} 
-          </ul>
-        </div>
-        <div class="col-md-9 main-content">
-          {{content}}
-        </div>
-      </div>
-      
-      <footer>
-        Nick Pearson {{ "now" | date: "%Y" }} | <a href="https://github.com/Nick-Pearson/ProfileWebsite" target="_blank">Git Repository</a>
-      </footer>
+<main class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+  {% if page.before-content %}
+    <div class="before-content">
+      {% for file in page.before-content %}
+        {% include {{ file }} %}
+      {% endfor %}
     </div>
+  {% endif %}
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  {{ content }}
 
-    <script src="/resources/js/site.js"></script>
-  </body>
-</html>
+  {% if page.after-content %}
+    <div class="after-content">
+      {% for file in page.after-content %}
+        {% include {{ file }} %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</main>
