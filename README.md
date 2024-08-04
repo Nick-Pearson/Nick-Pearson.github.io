@@ -4,4 +4,3 @@ Live version of the site can be found at [https://npearson.co.uk/](https://npear
 
 __Created using__
  * 🖌️[Beautiful Jekyll Theme](https://beautifuljekyll.com/)
-
