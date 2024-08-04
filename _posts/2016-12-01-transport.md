@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: ["PC", "Unity", "cs"]
+tags: ["Game Development", "C#", "Unity"]
 category: "Project Overview"
 title: "Project Overview - Transport Game"
 ---
@@ -19,9 +19,4 @@ Most of the series focused on the procedural terrain and editing system, using t
 
 ## Result
 
-Once I began working at Sumo Digital on my placement I no longer had time to make the videos and due to their decreasing popularity I decided to stop making the series. All of the source code used is still available on GitHub for anyone who is interested in continuing.
-
-## Links
-
-*   [Source Code (Github) @fa-external-link ](https://github.com/Nick-Pearson/Transport-Game)
-*   [Playlist of Youtube Tutorials @fa-external-link ](https://www.youtube.com/playlist?list=PLbqSTeoMZd-JmdgzeDP5OFeDzDo9xQ1ZW)
+Once I began working at Sumo Digital on my placement I no longer had time to make the videos and due to their decreasing popularity I decided to stop making the series. All of the source code used is still available on [GitHub](https://github.com/Nick-Pearson/Transport-Game) for anyone who is interested in continuing.

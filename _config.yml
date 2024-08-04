@@ -52,7 +52,7 @@ round-avatar: true
 social-network-links:
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
   github: Nick-Pearson
-  linkedin: nick-pearson/64/776/340
+  linkedin: nick-pearson-34077664
 
 # If you want your website to generate an RSS feed, provide a description
 # The URL for the feed will be https://<your_website>/feed.xml

@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: ["PC", "cpp", "UE4"]
+tags: ["Game Development", "C++", "Unreal Engine"]
 category: "Project Overview"
 title: "Project Overview - Dawn of the Fireflies"
 ---

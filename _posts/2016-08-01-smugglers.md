@@ -1,13 +1,13 @@
 ---
 layout: post
-tags: ["UWP", "Unity", "cs"]
+tags: ["Game Development", "C#", "Unity"]
 category: "Project Overview"
 title: "Project Overview - Smuggler's Paradise"
 ---
 
 A 2D cartoon style space shooter game, in which players could trade items across different planets while dodging obstacles on the way. Spend money upgrading and improving your ship. Created for the Rising Star GameJam round in 2 weeks for Universal Windows Platforms
 
-![Rocket minigame to travel between planets](/assets/img/projects/smugglers.jpg){: .mx-auto.d-block :}
+![Rocket minigame to travel between planets](/assets/img/projects/smugglers.png){: .mx-auto.d-block :}
 
 ## Gameplay
 
@@ -21,15 +21,15 @@ While flying the player had to be careful that their fuel level didn't approach 
 
 Some key parts of the code:
 
-__[SpacePhysics.cs @fa-external-link ](https://github.com/Nick-Pearson/SmugglersParadise/blob/master/UnityProject/Assets/Scripts/SpacePhysics.cs)__
+__[SpacePhysics.cs](https://github.com/Nick-Pearson/SmugglersParadise/blob/master/UnityProject/Assets/Scripts/SpacePhysics.cs)__
 
 I created my own basic physics component for the game so I could easily model the ship leaving a planet's atmosphere. It was designed so that the player remained near the origin and objects moved around them to give the impression of movement - this was to avoid floating point issues with the larger planets.
 
-__[Addon.cs @fa-external-link ](https://github.com/Nick-Pearson/SmugglersParadise/blob/master/UnityProject/Assets/Scripts/Addon.cs)__
+__[Addon.cs](https://github.com/Nick-Pearson/SmugglersParadise/blob/master/UnityProject/Assets/Scripts/Addon.cs)__
 
 Generic base class for addons to the ship and some implementations for the game, this might have benefited from Unity's Scriptable Object system so that the implementation of an Addon could be an asset.
 
-__[Mission.cs @fa-external-link ](https://github.com/Nick-Pearson/SmugglersParadise/blob/master/UnityProject/Assets/Scripts/Mission.cs)__
+__[Mission.cs](https://github.com/Nick-Pearson/SmugglersParadise/blob/master/UnityProject/Assets/Scripts/Mission.cs)__
 
 Generic base class for missions, the only implementation I had time for is a cargo delivery mission. I also began to work on serializing the missions to a string for a savegame system but I didn't have time to complete this
 
@@ -51,7 +51,7 @@ Despite the numerous issues with my entry I passed through to the final round, a
 
 I later found out via the Documentary series about the competition that the main reason I had progressed to the final round was due to my code quality.
 
-I've attached some of the feedback from the judges I received during the process. There was a bug in the build sent to judges which I hadn't noticed which crops up several times in the feedback. In the links section you will find a link to the Github clone of the repository, which has the original commits so you may be able to spot the bug fix I implemented after the fact ([Hint @fa-external-link ](https://github.com/Nick-Pearson/SmugglersParadise/commit/7937187d8f180d81c857ae844d56d6f8e4e4e591#diff-5ea3f08ef2c44a17b9b7ad729ff329f8)).
+I've attached some of the feedback from the judges I received during the process. There was a bug in the build sent to judges which I hadn't noticed which crops up several times in the feedback. In the links section you will find a link to the Github clone of the repository, which has the original commits so you may be able to spot the bug fix I implemented after the fact ([Hint](https://github.com/Nick-Pearson/SmugglersParadise/commit/7937187d8f180d81c857ae844d56d6f8e4e4e591#diff-5ea3f08ef2c44a17b9b7ad729ff329f8)).
 
 ### Judges Feedback
 
@@ -76,7 +76,7 @@ game."***
 
 ## Links
 
-*   [Source Code (Github Clone) @fa-external-link ](https://github.com/Nick-Pearson/SmugglersParadise)
-*   [Windows Store App Download Page @fa-external-link ](https://www.microsoft.com/en-gb/store/p/smugglers-paradise/9nblggh4qgc4)
-*   [Finalists Announcement @fa-external-link ](http://gradsingames.com/search-for-a-star/sfas-rs-2016-finalists/)
-*   [Playlist for the Documentary Series @fa-external-link ](https://www.youtube.com/playlist?list=PLV395U2mwlfLyXmpR8hIFUro0pBrpOE5n)
+*   [Source Code (Github Clone) ](https://github.com/Nick-Pearson/SmugglersParadise)
+*   [Windows Store App Download Page ](https://www.microsoft.com/en-gb/store/p/smugglers-paradise/9nblggh4qgc4)
+*   [Finalists Announcement ](http://gradsingames.com/search-for-a-star/sfas-rs-2016-finalists/)
+*   [Playlist for the Documentary Series ](https://www.youtube.com/playlist?list=PLV395U2mwlfLyXmpR8hIFUro0pBrpOE5n)
