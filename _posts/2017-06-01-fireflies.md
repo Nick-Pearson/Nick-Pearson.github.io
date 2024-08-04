@@ -2,6 +2,7 @@
 layout: post
 tags: ["Game Development", "C++", "Unreal Engine"]
 category: "Project Overview"
+thumbnail-img: /assets/img/projects/fireflies/thumb.png
 title: "Project Overview - Dawn of the Fireflies"
 ---
 
