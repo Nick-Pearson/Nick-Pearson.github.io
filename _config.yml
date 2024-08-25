@@ -259,6 +259,7 @@ exclude:
   - LICENSE
   - README.md
   - docs/
+  - src/
 
 plugins:
   - jekyll-paginate
