@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: ["Java", "JVM", "Classes", "Inner Classes"]
-title: "How Inner Classes got refactored in Java 11"
+title: "How Inner Classes got slightly better in Java 11"
 ---
 
 Inner classes are a crucial part of java programming. They allow us to create namespaces within classes, and they have a special relationship to their parent which permits access to private methods and fields. This would not be allowed for a top level class
