@@ -46,7 +46,7 @@ Back in January 1996 _Sun Microsystems Inc._ released Java 1.02, widely regarded
 Fast forward a year to Feburary 1997 to the release of Java 1.1 which included a significant number of new features; **but crucially did not require a new JVM specification**. This posed the challenge of implementing new syntax such as Inner Classes in a way that was compatible with the existing virtual machine and class file format.
 
 {: .box-note}
-**Note:** Java 1.1 actually did add a new `InnerClasses` attribute to the class file format. JVMs are required to ignore attributes they do not recognise, so older 1.02 implementations would simply discard the `InnerClasses` section (1)
+**Note:** Java 1.1 actually did add a new `InnerClasses` attribute to the class file format. [JVMs are required to ignore attributes they do not recognise](https://web.archive.org/web/20080907222800/http://java.sun.com/docs/books/jvms/second_edition/html/ClassFile.doc.html#79996), so older 1.02 implementations would simply discard the `InnerClasses` section
 
 ## Synthetic methods
 
@@ -66,7 +66,7 @@ class Outer {
 }
 ```
 
-If compiled and ran this, the Java 1.02 JVM would be required to throw an `IllegalAccessError` as soon as we invoked `key()`. It is forbidden to call private methods from another class and this must be enforced by the JVM. To circumvent this, the Java compiler adds an extra method to `Outer` that has the sole purpose of exposing `formatKey` publically. Methods that are added by the compiler are known as `synthetic`. We can see this by compiling the above example targetting java 8
+If we compiled and ran this as is, the Java 1.02 JVM would be required to throw an `IllegalAccessError` as soon as we tried to call `formatKey`. It is forbidden to call private methods from another class and this must be enforced by the JVM. To circumvent this, the Java compiler adds an extra method to `Outer` that has the sole purpose of exposing `formatKey` publically. Methods that are added by the compiler are known as `synthetic`. We can see this by compiling the above example targetting java 8
 
 ```
 $ javac Outer.java --source 8 --target 8
@@ -105,7 +105,7 @@ Well using syntehtic methods has some downsides:
  * **It makes our compiled code slightly bigger:** Every synthetic method must be shipped as part of our application, which creates bloat
  * **It makes our code slightly worse:** Adding an extra method call could introduce some overhead, however this may have been optimised by some jvms
 
-The new way added in JEP 181 (2) is to introduce Inner Classes as a primary feature of the JVM. This extended the class file to allow the JVM to understand the relationship between nested inner and outer classes so that it could handle them correctly.
+The new way added in [JEP 181](https://openjdk.org/jeps/181) is to introduce Inner Classes as a primary feature of the JVM. This extended the class file to allow the JVM to understand the relationship between nested inner and outer classes so that it could handle them correctly.
 
 Looking at the same example targetting Java 11
 
@@ -118,10 +118,11 @@ class Outer {
 }
 ```
 
-The `access$000` method has disappeared as there is no need for it anymore
+The `access$000` method has disappeared as there is no need for it anymore. Instead the class file contains two new attributes:
+ * `NestHost`: a reference to the outer class for a given inner class
+ * `NestMembers`: the list of inner classes that this class contains
 
-## References
+{: .box-note}
+**Note:** Conversely to the `InnerClasses` attribute; JVMs _are_ required to process these attributes
 
-{: .reference-list}
-1. The Java Virtual Machine Specification (First Edition), Class File [Archived September 2007](https://web.archive.org/web/20080907222800/http://java.sun.com/docs/books/jvms/second_edition/html/ClassFile.doc.html#79996)
-2. JEP 181: Nest-Based Access Control [OpenJDK](https://openjdk.org/jeps/181)
+This new method allows the JVM to fix the above issues around reflection as it has visibility of the original structure, and it means modern compilers no longer need to generate sythetic 'access bridge' methods for inner classes.
