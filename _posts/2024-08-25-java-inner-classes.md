@@ -2,6 +2,7 @@
 layout: post
 tags: ["Java", "JVM", "Classes", "Inner Classes"]
 title: "How Inner Classes got slightly better in Java 11"
+last-updated: 2024-09-01
 ---
 
 Inner classes are a crucial part of java programming. They allow us to create namespaces within classes, and they have a special relationship to their parent which permits access to private methods and fields. This would not be allowed for a top level class
@@ -123,6 +124,6 @@ The `access$000` method has disappeared as there is no need for it anymore. Inst
  * `NestMembers`: the list of inner classes that this class contains
 
 {: .box-note}
-**Note:** Conversely to the `InnerClasses` attribute; JVMs _are_ required to process these attributes
+**Note:** Conversely to the `InnerClasses` attribute, JVMs _are required_ to process the NestHost / NestMembers data
 
 This new method allows the JVM to fix the above issues around reflection as it has visibility of the original structure, and it means modern compilers no longer need to generate sythetic 'access bridge' methods for inner classes.
